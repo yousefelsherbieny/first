@@ -1,0 +1,46 @@
+.nevbar{
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    right: 0;
+    left: 0;
+    align-items: center;
+    background-color: #F1EFDE ;
+    border-radius: 40px;
+  
+}
+.ulstyle{
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: flex;
+   text-align: center;
+    width: 50%;
+    justify-content: space-evenly;
+}
+.astyle{
+    color: #04343E;
+    text-decoration: none;
+    font-size: 15px;
+}
+@media screen and (max-width: 992px) {
+    ul{
+        width: 80%;
+    }
+    
+}
+@media screen and (max-width:768px){
+    .nevbar{
+        flex-direction: column;
+        background-color: #f1efde42;
+        border-radius: 0;
+       
+       
+    }
+   .ulstyle{
+    flex-direction: column;
+    }
+    .astyle{
+        padding: 5px 3px;
+    }
+}

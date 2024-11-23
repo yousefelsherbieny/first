@@ -1,0 +1,10 @@
+.buttSty{
+    width: 230px;
+    height: 40px;
+    border: none;
+    border-radius: 40px;
+    padding: 6px;
+    background-color: #0609DD;
+    color: #ffffff;
+    font-size: 18px;
+}
