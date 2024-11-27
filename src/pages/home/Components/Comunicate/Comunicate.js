@@ -35,7 +35,7 @@ function Comunicate() {
             
             ></textarea>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-            <button style={{backgroundColor:' #03333A',padding:'10px 40px 10px 46px',borderRadius:'45px',color:'#ffffff',fontWeight:'400',fontSize:'30px',border:'none'}}> ارسال</button>
+            <button style={{backgroundColor:' #03333A',padding:'15px ',borderRadius:'20px',color:'#ffffff',fontWeight:'400',fontSize:'20px',border:'none',textAlign:'center'}}> ارسال</button>
             </div>
         </form>
         

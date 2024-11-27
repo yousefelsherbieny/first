@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
 import './tech.css';
 function Tech2(){
     const[Language]=useState('ar');
@@ -9,9 +8,9 @@ function Tech2(){
     const [address,setAdress]=useState('');
     const [password,setPassword]=useState('');
     const [confirmpassword,setConfirmPassword]=useState('');
-    const Navigate=useNavigate();
+   
     return(
-        <form className=" p-4 mx-auto w-25 sty " action="" dir={Language==='ar'?'rtl':'ltr'} style={{position:'fixed',bottom:'0',right:'0',left:'0'}}>
+        <form className=" p-4 mx-auto w-25 sty2 " action="" dir={Language==='ar'?'rtl':'ltr'} style={{position:'fixed',bottom:'0',right:'0',left:'0'}}>
         <div style={{marginTop:'90px',width:'411px',height:'533px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}}>
         <div >
           <h4 style={{textAlign:'center', marginTop:'5px'}}>انشاء حساب حرفي</h4>
@@ -60,7 +59,7 @@ function Tech2(){
           style={{borderRadius:'15px',width:'300px'}}
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-            <button style={{border:'none', backgroundColor:' #0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Tech2')} >متابعة</button>
+            <button style={{border:'none', backgroundColor:' #0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}} >متابعة</button>
             </div>
             </div>
             </div>

@@ -11,19 +11,19 @@ function Navbaar() {
                 </li>
                 <li> 
                     
-                      <Link to ='/Login' className='astyle'>انضم إلينا</Link>
+                      <Link className='astyle'> من نحن</Link>
                 </li>
                 <li> 
-                    <Link  className='astyle' >من نحن </Link>
+                    <Link to ='/Login'  className='astyle' > انضم إلينا </Link>
                 </li>
                 <li> 
-                    < Link className='astyle'> تسجيل الدخول</Link>
+                    < Link to ='/Login' className='astyle'> تسجيل الدخول</Link>
                 </li>
                 <li> 
                     <Link to ='/' className='astyle'> الرئيسية</Link>
                 </li>
             </ul>
-            <img src={require('../../../../Images/navbar/logo.png')} alt='' width={'60px'}/>
+            <img src={require('../../../../Images/navbar/logo.png')} alt='' width={'65px'}/>
         </nav>
     )
     

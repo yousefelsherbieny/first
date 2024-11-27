@@ -2,8 +2,10 @@ import Comunicate from "./pages/home/Components/Comunicate/Comunicate";
 import Home from "./pages/home/Components/Home";
 import Login from "./pages/log in/Login";
 import Tech from "./pages/technican/Technican";
-import Tech2 from "./pages/tech2/Tech2";
+import Tech2 from "./pages/technican/Tech2";
+import Client from "./pages/client/Client";
 import { Route, Routes } from "react-router-dom";
+import Client2 from "./pages/client/Client2";
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
         <Route path="/Login" element={<Login/>}/>
         <Route path="/Tech" element={<Tech/>}/>
         <Route path="/Tech2" element={<Tech2/>}/>
+        <Route path="/Client" element={<Client/>}/>
+        <Route path="/Client2" element={<Client2/>}/>
+
         
        </Routes>
       

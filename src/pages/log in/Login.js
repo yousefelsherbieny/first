@@ -16,7 +16,7 @@ export default function Login(){
            <h5 style={{fontSize:'30px', margin:'10px',textAlign:'center'}}> انشاء حساب</h5>
            <button onClick={()=>Navigate('/Tech')} style={{margin:'5px'}} className='buttSty' > حرفي</button>
            <div>
-           <button  style={{margin:'5px'}} className='buttSty'>طالب خدمة</button>
+           <button onClick={()=>Navigate('/Client')} style={{margin:'5px'}} className='buttSty'>طالب خدمة</button>
            </div>
            <p style={{color:'#000000'}}>هل لديك حساب بالفعل؟ <Link style={{color:'#0A0DE2',listStyle:'none'}}> تسجيل الدخول</Link></p>
            </div>

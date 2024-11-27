@@ -1,9 +1,11 @@
 import { useState } from "react";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
-import './tech.css';
-function Tech(){
+import './client.css';
+
+
+function Client(){
     const[Language]=useState('ar');
     const [firstName,setFirstName]=useState('');
     const [phone,Setphone]=useState('');
@@ -28,11 +30,10 @@ function Tech(){
         <img src={require('../../Images/navbar/logo.png')} alt='' width={'85px'} className="no"/>
        
         </div >
-     
-<form className=" p-4 mx-auto w-25 sty2" action="" dir={Language==='ar'?'rtl':'ltr'} style={{position:'fixed',bottom:'0',right:'0',left:'0'}}>
+        <form className=" p-4 mx-auto w-25 sty2" action="" dir={Language==='ar'?'rtl':'ltr'} style={{position:'fixed',bottom:'0',right:'0',left:'0'}}>
 
 
-<div style={{marginTop:'90px',width:'411px',height:'511px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}} className="smm" >
+<div style={{marginTop:'90px',width:'411px',height:'511px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}}>
 <div style={{display:'flex',justifyContent:"center",alignItems:'center'}}>
              <div >
             
@@ -45,12 +46,13 @@ function Tech(){
             ):(
                 <div style={{width:'80px',height:'80px',borderRadius:'50%',backgroundColor:'#e0e0e0',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   
-                  <FontAwesomeIcon icon={faUser}  />
-                    </div> 
+                  <FontAwesomeIcon icon={faUser} />
+                    </div>
+                    
                 )}
-        </div>    
+        </div>
         <div style={{textAlign:'center'}}>
-             <h6 style={{color:'#0a0eff', fontWeight:'600', fontSize:'18px'}} >إضافة صورة شخصية</h6>
+             <h6 style={{color:'#0a0eff', fontWeight:'600', fontSize:'18px'}}>إضافة صورة شخصية</h6>
     </div>
     <div>
         <input type="file" accept="image/*" onChange={handleimageupload}></input>
@@ -79,7 +81,7 @@ function Tech(){
           style={{borderRadius:'15px',width:'300px'}}
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-            <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Tech2')} >متابعة</button>
+            <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Client2')} >متابعة</button>
             </div>
             <h6>هل لديك حساب  بالفعل؟ <span style={{color:'#0a0eff'}}>تسجيل الدخول</span></h6>
             </div>
@@ -88,11 +90,8 @@ function Tech(){
         </form>
         </div>
         </div>
+        
        
-        
-        
-      
     )
-
 }
-export default Tech;
+export default Client;

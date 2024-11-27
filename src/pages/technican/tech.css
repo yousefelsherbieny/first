@@ -7,4 +7,19 @@
     font-size: 17px;
     color: #000000;
 }
+@media screen and (max-width:768px){
+    .sty2{
     
+        width: 350px;
+        height: 311px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 150px;
+        }
+        .no{
+            display: none;
+        }
+   
+}
