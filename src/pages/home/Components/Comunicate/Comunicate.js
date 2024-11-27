@@ -1,6 +1,6 @@
 import { useState } from "react";
 function Comunicate() {
-    const[Language,Setlanguage]=useState('ar');
+    const[Language]=useState('ar');
     const [firstName,setFirstName]=useState('');
     const [phone,Setphone]=useState('');
     const [message,Setmessage]=useState('');

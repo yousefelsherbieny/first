@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate ,Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 import './client.css';
@@ -83,7 +83,7 @@ function Client(){
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
             <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Client2')} >متابعة</button>
             </div>
-            <h6>هل لديك حساب  بالفعل؟ <span style={{color:'#0a0eff'}}>تسجيل الدخول</span></h6>
+            <h6>هل لديك حساب  بالفعل؟ <Link style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
             </div>
             </div>
         </div>

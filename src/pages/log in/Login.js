@@ -18,7 +18,7 @@ export default function Login(){
            <div>
            <button onClick={()=>Navigate('/Client')} style={{margin:'5px'}} className='buttSty'>طالب خدمة</button>
            </div>
-           <p style={{color:'#000000'}}>هل لديك حساب بالفعل؟ <Link style={{color:'#0A0DE2',listStyle:'none'}}> تسجيل الدخول</Link></p>
+           <p style={{color:'#000000'}}>هل لديك حساب بالفعل؟ <Link style={{color:'#0A0DE2',listStyle:'none',textDecoration:'none'}}> تسجيل الدخول</Link></p>
            </div>
            </div>
            </div>
