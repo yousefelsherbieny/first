@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import './login.css';
+import './Join.css';
 
-export default function Login(){
+export default function Join(){
     const Navigate=useNavigate();
     return(
         <div  style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'90px'}}>

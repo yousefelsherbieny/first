@@ -17,7 +17,7 @@ function Navbaar() {
                     <Link to ='/Login'  className='astyle' > انضم إلينا </Link>
                 </li>
                 <li> 
-                    < Link to ='/Login' className='astyle'> تسجيل الدخول</Link>
+                    < Link  className='astyle'> تسجيل الدخول</Link>
                 </li>
                 <li> 
                     <Link to ='/' className='astyle'> الرئيسية</Link>
