@@ -1,0 +1,21 @@
+.intsty{
+    border-radius: 15px;
+    width: 300px;
+}
+.sty2{
+    font-weight: 600;
+    font-size: 17px;
+    color: #000000;
+}
+@media screen and (max-width:768px){
+    .sty2{
+    
+       display: inline;
+       
+    }
+        .no{
+            display: none;
+        }
+
+   
+}

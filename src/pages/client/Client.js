@@ -83,7 +83,7 @@ function Client(){
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
             <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Client2')} >متابعة</button>
             </div>
-            <h6>هل لديك حساب  بالفعل؟ <Link style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
+            <h6>هل لديك حساب  بالفعل؟ <Link to ='/Log' style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
             </div>
             </div>
         </div>
