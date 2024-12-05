@@ -45,14 +45,14 @@ function Client2(){
           style={{borderRadius:'15px',width:'300px'}}
             ></input>
             <label >   كلمة المرور</label>
-            <input className="form-control mb-2 intsty" placeholder="password" type="text"
+            <input className="form-control mb-2 intsty" placeholder="password" type="password"
             required
             value={password}
             onChange={(e)=>setPassword(e.target.value)}
           style={{borderRadius:'15px',width:'300px'}}
             ></input>
              <label >    تأكيد كلمة المرور</label>
-            <input className="form-control mb-2 intsty" placeholder="confirm" type="text"
+            <input className="form-control mb-2 intsty" placeholder="confirm" type="password"
             required
             value={confirmpassword}
             onChange={(e)=>setConfirmPassword(e.target.value)}

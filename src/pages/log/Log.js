@@ -4,7 +4,7 @@ import './log.css';
 function Log(){
     const[Language]=useState('ar');
     const [email,Setemail]=useState('');
-    const [phone,Setphone]=useState('');
+    const [pass,Setpass]=useState('');
    
     return(
         <div>
@@ -30,10 +30,10 @@ function Log(){
             
             ></input>
             <label style={{color:'#03333A'}}>كلمة المرور </label>
-            <input className="form-control mb-2" placeholder="phone" type="text"
+            <input className="form-control mb-2" placeholder="password" type="password"
             required
-            value={phone}
-            onChange={(e)=>Setphone(e.target.value)}
+            value={pass}
+            onChange={(e)=>Setpass(e.target.value)}
             ></input>
             <Link to= '/VerificationCodeInput' style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>هل نسيت كلمة السر</Link>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>

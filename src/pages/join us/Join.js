@@ -18,7 +18,7 @@ export default function Join(){
            <div>
            <button onClick={()=>Navigate('/Client')} style={{margin:'5px'}} className='buttSty'>طالب خدمة</button>
            </div>
-           <p style={{color:'#000000'}}>هل لديك حساب بالفعل؟ <Link style={{color:'#0A0DE2',listStyle:'none',textDecoration:'none'}}> تسجيل الدخول</Link></p>
+           <p style={{color:'#000000'}}>هل لديك حساب بالفعل؟ <Link to='/Log' style={{color:'#0A0DE2',listStyle:'none',textDecoration:'none'}}> تسجيل الدخول</Link></p>
            </div>
            </div>
            </div>

@@ -9,7 +9,7 @@ const Header =()=>{
             <div>
             <h2 style={{fontSize:'60px',color:'white'}}>الحرفي هنا</h2>
             <p style={{fontSize:'30px', color:'white'}}>اكتشف أفضل الحرفيين بالقرب منك بسهولة و سرعة</p>
-            <button onClick={()=>Navigate('/login')} className='butt'>انضم إلينا</button>
+            <button onClick={()=>Navigate('/Join')} className='butt'>انضم إلينا</button>
             </div>
         </div>
         </div>
