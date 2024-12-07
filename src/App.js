@@ -7,7 +7,7 @@ import Client from "./pages/client/Client";
 import { Route, Routes } from "react-router-dom";
 import Client2 from "./pages/client/Client2";
 import Log from "./pages/log/Log";
-import VerificationCodeInput from "./pages/log/Code";
+import VerificationCodeInput from "./pages/code/Code";
 function App() {
   return (
     <div className="App">

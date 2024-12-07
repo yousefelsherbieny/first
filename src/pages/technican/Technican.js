@@ -72,7 +72,7 @@ function Tech(){
             style={{borderRadius:'15px',width:'300px'}}
             ></input>
             <label > البريد الالكتروني</label>
-            <input className="form-control mb-2 intsty" placeholder="email" type="text"
+            <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
             value={email}
             onChange={(e)=>Setemail(e.target.value)}
