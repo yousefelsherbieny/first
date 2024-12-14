@@ -5,10 +5,10 @@ const VerificationCodeInput = () => {
 
   const handleChange = (value, index) => {
     const updatedCodes = [...codes];
-    updatedCodes[index] = value.slice(0, 1); // يقبل حرفًا واحدًا فقط
+    updatedCodes[index] = value.slice(0, 1); 
     setCodes(updatedCodes);
 
-    // التنقل بين الحقول تلقائيًا
+        
     if (value && index < 5) {
       document.getElementById(`input-${index + 1}`).focus();
     }
@@ -17,7 +17,7 @@ const VerificationCodeInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Entered Code:", codes.join(""));
-    // تحقق من الرمز هنا
+    
   };
 
   return (

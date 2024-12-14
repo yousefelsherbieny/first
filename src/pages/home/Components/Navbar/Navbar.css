@@ -5,8 +5,9 @@
     right: 0;
     left: 0;
     align-items: center;
-    background-color: #F1EFDE ;
-    border-radius: 40px;
+    background-color: #FFFFFF ;
+   height: 60px;
+ 
   
 }
 .ulstyle{
@@ -22,6 +23,8 @@
     color: #04343E;
     text-decoration: none;
     font-size: 18px;
+    justify-content: center;
+    align-items: center;
 }
 @media screen and (max-width: 992px) {
     ul{
