@@ -1,25 +1,47 @@
-.intsty{
-    border-radius: 15px;
-    width: 300px;
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+.parent{
+    display: flex;
+    justify-content: space-around;
+    
+
 }
 .sty2{
-    font-weight: 600;
-    font-size: 17px;
-    color: #000000;
+    width: 100%;
+   
+    padding: 20px;
+}
+.intsty{
+    padding: 10px 20px;
+    width: 50%;
+    outline: none;
+    border: 2px solid white;
+    box-shadow: 0px 0px 1px 1px #A9543F ;
+    transition: 0.3s;
+    margin-bottom: 8px;
+}
+.intsty:focus{
+    border: 2px solid #A9543F;
+}
+.register{
+   
+    margin-top: 40px;
 }
 @media screen and (max-width:768px){
     .sty2{
     
-        width: 350px;
-        height: 311px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        margin-bottom: 150px;
+    width: 350px;
+    height: 311px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 150px;
     }
-        .no{
-            display: none;
-        }
+    .no{
+        display: none;
+    }
    
 }

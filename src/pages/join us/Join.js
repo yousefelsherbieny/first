@@ -1,28 +1,34 @@
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import './Join.css';
 
 export default function Join(){
     const Navigate=useNavigate();
+    const [action,setaction]=useState('');
+    const handleNext=()=>{
+        if(action==='Tech'){
+            Navigate('/Tech');
+        }
+        else if(action==='client'){
+            Navigate('/Client');
+        }
+    };
     return(
-        <div  style={{display:'flex',justifyContent:'center',alignItems:'center',marginTop:'90px'}}>
+       <div className='container' >
+        
+        <div className='right-section text-center d-flex align-items-center '>
             <div>
-                <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <img src={require('../../Images/navbar/logo.png')} alt='' width={'80px'}/>
-           
-            </div >
-            <div style={{width:'411px',height:'321px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:'center',alignItems:'center'}}>
+            <h2>  انشاء حساب </h2>
+            <hr style={{color:'#2352A1'}}></hr>
+            <p style={{color:'#9F966E'}}>اختر النوع</p>
+            <button onClick={()=>setaction('Tech')} style={{backgroundColor:'#ffffff',padding:'20px 40px', color:'#9F966E'}} className='sty me-3'><img src={require('../../Images/navbar/Vector (1).png')} alt=''/> <br></br>حرفي</button>
+            <button onClick={()=>setaction('client')} style={{backgroundColor:'#ffffff',padding:'20px 40px', color:'#9F966E'}} className='sty '> <img src={require('../../Images/navbar/Vector (1).png')} alt=''/> <br></br> طالب خدمة</button>
             <div>
-           <h5 style={{fontSize:'30px', margin:'10px',textAlign:'center'}}> انشاء حساب</h5>
-           <button onClick={()=>Navigate('/Tech')} style={{margin:'5px'}} className='buttSty' > حرفي</button>
-           <div>
-           <button onClick={()=>Navigate('/Client')} style={{margin:'5px'}} className='buttSty'>طالب خدمة</button>
-           </div>
-           <p style={{color:'#000000'}}>هل لديك حساب بالفعل؟ <Link to='/Log' style={{color:'#0A0DE2',listStyle:'none',textDecoration:'none'}}> تسجيل الدخول</Link></p>
-           </div>
-           </div>
-           </div>
-           </div>
-       
+            <button onClick={handleNext} style={{backgroundColor:'#A9543F',border:'none',color:'white',padding:'3px 35px',marginTop:'10px'}}>التالي</button>
+            </div>
+            </div>
+        </div>
+       </div>
     )
 }

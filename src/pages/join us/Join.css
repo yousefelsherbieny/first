@@ -8,3 +8,17 @@
     color: #ffffff;
     font-size: 18px;
 }
+.container{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+.sty{
+    border: none;
+    color:#9F966E
+}
+.sty:hover{
+    border: solid 2px #A9543F;
+    color: #A9543F;
+}
+

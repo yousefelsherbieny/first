@@ -1,16 +1,17 @@
-import { useState } from "react";
+import { useState,useRef } from "react";
 import { useNavigate ,Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 import './client.css';
 
 
-function Client(){
+function Client( {setFormData}){
     const[Language]=useState('ar');
     const [firstName,setFirstName]=useState('');
     const [phone,Setphone]=useState('');
     const [email,Setemail]=useState('');
     const [profilePicture,SetProfilePicture]=useState('');
+    const fileInputRef = useRef(null);
     const Navigate=useNavigate();
     const handleimageupload=(e)=>{
         const file=e.target.file[''];
@@ -23,19 +24,26 @@ function Client(){
             reader.readAsDataURL(file);
         }
     };
+    function Submit(e){
+        e.preventDefault();
+        setFormData({firstName,phone,email,profilePicture});
+        Navigate('/Client2')
+     
+      }
+      const handleH1Click = () => {
+        
+        fileInputRef.current.click();
+      };
     return(
-        <div  style={{marginBottom:'60px'}} className="small">
-        <div>
-            <div style={{ display:'flex',justifyContent:'center', alignItems:'center',transform:'translateY(50%)',marginRight:'120px'}}>
-        <img src={require('../../Images/navbar/logo.png')} alt='' width={'85px'} className="no"/>
-       
-        </div >
-        <form className=" p-4 mx-auto w-25 sty2" action="" dir={Language==='ar'?'rtl':'ltr'} style={{position:'fixed',bottom:'0',right:'0',left:'0'}}>
+        <div className="parent">
+            
+        <div className="register">
+            
+     
+<form onSubmit={Submit}  className="sty2 " action="" dir={Language==='ar'?'rtl':'ltr'}>
 
 
-<div style={{marginTop:'90px',width:'411px',height:'511px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}}>
-<div style={{display:'flex',justifyContent:"center",alignItems:'center'}}>
-             <div >
+
             
         <div style={{marginBottom:'10px',display:'flex',alignItems:'center',justifyContent:'center'}}>
             {profilePicture ?(
@@ -46,16 +54,15 @@ function Client(){
             ):(
                 <div style={{width:'80px',height:'80px',borderRadius:'50%',backgroundColor:'#e0e0e0',display:'flex',alignItems:'center',justifyContent:'center'}}>
                   
-                  <FontAwesomeIcon icon={faUser} />
-                    </div>
-                    
+                  <FontAwesomeIcon icon={faUser}  />
+                    </div> 
                 )}
-        </div>
+        </div>    
         <div style={{textAlign:'center'}}>
-             <h6 style={{color:'#0a0eff', fontWeight:'600', fontSize:'18px'}}>إضافة صورة شخصية</h6>
+             <h6 onClick={handleH1Click}   style={{color:'#A9543F', fontWeight:'600', fontSize:'18px',cursor:'pointer'}} >إضافة صورة شخصية</h6>
     </div>
     <div>
-        <input type="file" accept="image/*" onChange={handleimageupload}></input>
+        <input type="file" accept="image/*" ref={fileInputRef} style={{display:'none'}} onChange={handleimageupload}></input>
     </div>
             <label >الاسم كامل</label>
             <input className="form-control mb-2 intsty"
@@ -64,34 +71,38 @@ function Client(){
             required
             value={firstName}
             onChange={(e)=> setFirstName(e.target.value)}
-            style={{borderRadius:'15px',width:'300px'}}
+          
             ></input>
             <label >رقم الهاتف</label>
             <input className="form-control mb-2 intsty" placeholder="phone" type="text"
             required
             value={phone}
             onChange={(e)=>Setphone(e.target.value)}
-            style={{borderRadius:'15px',width:'300px'}}
+            
             ></input>
             <label > البريد الالكتروني</label>
             <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
             value={email}
             onChange={(e)=>Setemail(e.target.value)}
-          style={{borderRadius:'15px',width:'300px'}}
+        
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-            <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Client2')} >متابعة</button>
+            <button style={{border:'none', backgroundColor:'#A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  type="submit">متابعة</button>
             </div>
-            <h6>هل لديك حساب  بالفعل؟ <Link to ='/Log' style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
-            </div>
-            </div>
-        </div>
+            <h6>هل لديك حساب  بالفعل؟ <Link to='/Log' style={{color:'#A9543F',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
+            
+        
         </form>
         </div>
         </div>
         
        
+        
+        
+      
     )
+
+
 }
 export default Client;

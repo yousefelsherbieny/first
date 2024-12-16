@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 const VerificationCodeInput = () => {
   const [codes, setCodes] = useState(Array(6).fill(""));
+  const Navigate=useNavigate();
 
   const handleChange = (value, index) => {
     const updatedCodes = [...codes];
@@ -17,16 +18,18 @@ const VerificationCodeInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Entered Code:", codes.join(""));
+    Navigate('/Passdone');
     
   };
 
   return (
-    
+    <div className="container">
+    <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly'}}>
     <form onSubmit={handleSubmit}>
-        <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-        <div style={{width:'311px',height:'211px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}} >
+       
+        
         <div>
-            <h4 style={{textAlign:'center'}}>تم إرسال رمز التحقق</h4>
+            <h4 style={{textAlign:'center',color:'#A9543F'}}>تم إرسال رمز التحقق</h4>
       <div style={{ display: "flex", gap: "10px" }}>
         {codes.map((code, index) => (
           <input
@@ -45,16 +48,18 @@ const VerificationCodeInput = () => {
           />
         ))}
       </div>
-      <Link style={{textAlign:'center',color:'#0a0eff',listStyle:'none',textDecoration:'none',display:'flex',alignItems:'center',justifyContent:'center'}}>إعادة إرسال رمز التحقق</Link>
+      <Link style={{textAlign:'center',color:'#A9543F',listStyle:'none',textDecoration:'none',display:'flex',alignItems:'center',justifyContent:'center'}}>إعادة إرسال رمز التحقق</Link>
      <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-      <button type="submit" style={{ marginTop: "20px",border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}>
+      <button type="submit"  style={{ marginTop: "20px",border:'none', backgroundColor:'#A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}>
         تحقق
       </button>
       </div>
       </div>
-      </div>
-      </div>
+      
+     
     </form>
+    </div>
+    </div>
    
   );
 };

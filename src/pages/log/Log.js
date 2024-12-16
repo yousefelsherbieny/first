@@ -7,22 +7,20 @@ function Log(){
     const [pass,Setpass]=useState('');
    
     return(
-        <div>
-            <div style={{marginBottom:'90px'}}>
-         <div style={{display:'flex',justifyContent:'center',alignItems:'center',transform:'translateY(50%)',marginRight:'120px'}}>
-            <img src={require('../../Images/navbar/logo.png')} alt='' width={'80px'} className='no'/>
-            </div >
+        <div className="container">
+        <div className="parent">
+            <div  className="log" >
             
-        <form className="w-25 p-4 mx-auto sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
-        <div style={{width:'411px',height:'371px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}} className="smm">
-            <div>
+        <form className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
+        
+           
         <div style={{textAlign:'center',color:'#03333E',marginTop:'10px'}}>
         <h4>تسجيل الدخول</h4>
-        <p style={{fontSize:'16px'}}>ابق على اطلاع على أحدث  أخبار عالمك الاحترافي</p>
+        <p style={{fontSize:'16px',margin:'10px'}}>ابق على اطلاع على أحدث  أخبار عالمك الاحترافي</p>
         </div>
             <label style={{color:'#03333A'}}> البريد الالكتروني أو رقم الهاتف</label>
             <input className="form-control mb-2"
-             placeholder="name" 
+             placeholder="Email" 
             type="text"
             required
             value={email}
@@ -35,15 +33,15 @@ function Log(){
             value={pass}
             onChange={(e)=>Setpass(e.target.value)}
             ></input>
-            <Link to= '/VerificationCodeInput' style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>هل نسيت كلمة السر</Link>
+            <Link to= '/Passwordr' style={{color:'#A9543F',listStyle:'none',textDecoration:'none',margin:'5px'}}>هل نسيت كلمة السر</Link>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-            <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 30px',color:'#ffffff',borderRadius:'15px'}}   >تسجيل الدخول</button>
+            <button style={{border:'none', backgroundColor:'#A9543F', padding:'10px 30px',color:'#ffffff',borderRadius:'15px',marginTop:'5px'}}   >تسجيل الدخول</button>
             </div>
-            <h6>عضو جديد على الحرفي؟ <Link to ='/Join' style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>انضم إلينا </Link></h6>
-           </div>
-          </div>
+            <h6 style={{marginTop:'5px'}}>عضو جديد على الحرفي؟ <Link to ='/Join' style={{color:'#A9543F',listStyle:'none',textDecoration:'none'}}>انضم إلينا </Link></h6>
+          
             
         </form>
+        </div>
         </div>
         </div>
        

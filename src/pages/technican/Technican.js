@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useState ,useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 import './tech.css';
-function Tech(){
+function Tech({setData}){
     const[Language]=useState('ar');
     const [firstName,setFirstName]=useState('');
     const [phone,Setphone]=useState('');
     const [email,Setemail]=useState('');
     const [profilePicture,SetProfilePicture]=useState('');
     const Navigate=useNavigate();
+    const fileInputRef = useRef(null);
+    
     const handleimageupload=(e)=>{
         const file=e.target.file[''];
         if(file){
@@ -20,21 +22,29 @@ function Tech(){
             }
             reader.readAsDataURL(file);
         }
+        
+          
     };
-    return(
-        <div  style={{marginBottom:'60px'}} className="small">
-        <div>
-            <div style={{ display:'flex',justifyContent:'center', alignItems:'center',transform:'translateY(50%)',marginRight:'120px'}}>
-        <img src={require('../../Images/navbar/logo.png')} alt='' width={'85px'} className="no"/>
-       
-        </div >
+    function Submit(e){
+        e.preventDefault();
+        setData({firstName,phone,email,profilePicture});
+        Navigate('/Tech2')
      
-<form className=" p-4 mx-auto w-25 sty2" action="" dir={Language==='ar'?'rtl':'ltr'} style={{position:'fixed',bottom:'0',right:'0',left:'0'}}>
+      }
+      const handleH1Click = () => {
+        
+        fileInputRef.current.click();
+      };
+    return(
+        <div className="parent">
+            
+        <div className="register">
+        
+     
+<form onSubmit={Submit}  className="  sty2" action="" dir={Language==='ar'?'rtl':'ltr'} >
+<h4  style={{textAlign:'center', marginTop:'5px',fontWeight:'bold'}}>انشاء حساب حرفي</h4>
 
 
-<div style={{marginTop:'90px',width:'411px',height:'511px',backgroundColor:'#f6f6f6',display:'flex',justifyContent:"center",alignItems:'center'}} className="smm" >
-<div style={{display:'flex',justifyContent:"center",alignItems:'center'}}>
-             <div >
             
         <div style={{marginBottom:'10px',display:'flex',alignItems:'center',justifyContent:'center'}}>
             {profilePicture ?(
@@ -50,10 +60,10 @@ function Tech(){
                 )}
         </div>    
         <div style={{textAlign:'center'}}>
-             <h6 style={{color:'#0a0eff', fontWeight:'600', fontSize:'18px'}} >إضافة صورة شخصية</h6>
+             <h6  onClick={handleH1Click} style={{color:'#A9543F', fontWeight:'600', fontSize:'18px',cursor:'pointer'}} >إضافة صورة شخصية</h6>
     </div>
     <div>
-        <input type="file" accept="image/*" onChange={handleimageupload}></input>
+        <input type="file" accept="image/*" ref={fileInputRef} style={{display:'none'}} onChange={handleimageupload}></input>
     </div>
             <label >الاسم كامل</label>
             <input className="form-control mb-2 intsty"
@@ -62,32 +72,32 @@ function Tech(){
             required
             value={firstName}
             onChange={(e)=> setFirstName(e.target.value)}
-            style={{borderRadius:'15px',width:'300px'}}
+           
             ></input>
             <label >رقم الهاتف</label>
-            <input className="form-control mb-2 intsty" placeholder="phone" type="text"
+            <input className="form-control  intsty" placeholder="phone" type="text"
             required
             value={phone}
             onChange={(e)=>Setphone(e.target.value)}
-            style={{borderRadius:'15px',width:'300px'}}
+           
             ></input>
             <label > البريد الالكتروني</label>
             <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
             value={email}
             onChange={(e)=>Setemail(e.target.value)}
-          style={{borderRadius:'15px',width:'300px'}}
+         
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
-            <button style={{border:'none', backgroundColor:'#0609DD', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  onClick={()=>Navigate('/Tech2')} >متابعة</button>
+            <button style={{border:'none', backgroundColor:'#A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  >متابعة</button>
             </div>
-            <h6>هل لديك حساب  بالفعل؟ <Link to='/Log' style={{color:'#0a0eff',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
-            </div>
-            </div>
-        </div>
+            <h6>هل لديك حساب  بالفعل؟ <Link to='/Log' style={{color:'#A9543F',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
+            
+        
         </form>
         </div>
         </div>
+       
        
         
         
