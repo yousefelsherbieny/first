@@ -1,17 +1,24 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import './log.css';
 function Log(){
     const[Language]=useState('ar');
     const [email,Setemail]=useState('');
     const [pass,Setpass]=useState('');
+    const Navigate=useNavigate();
+    function Submit(e){
+        e.preventDefault();
+     
+        Navigate('/Congra')
+     
+      }
    
     return(
-        <div className="container">
+       
         <div className="parent">
             <div  className="log" >
             
-        <form className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
+        <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
         
            
         <div style={{textAlign:'center',color:'#03333E',marginTop:'10px'}}>
@@ -21,7 +28,7 @@ function Log(){
             <label style={{color:'#03333A'}}> البريد الالكتروني أو رقم الهاتف</label>
             <input className="form-control mb-2"
              placeholder="Email" 
-            type="text"
+            type="email"
             required
             value={email}
             onChange={(e)=> Setemail(e.target.value)}
@@ -43,7 +50,7 @@ function Log(){
         </form>
         </div>
         </div>
-        </div>
+       
        
         
        
