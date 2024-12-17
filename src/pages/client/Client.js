@@ -41,6 +41,7 @@ function Client( {setFormData}){
             
      
 <form onSubmit={Submit}  className="sty2 " action="" dir={Language==='ar'?'rtl':'ltr'}>
+<h4  style={{textAlign:'center', marginTop:'5px',fontWeight:'bold'}}>انشاء حساب عميل</h4>
 
 
 
