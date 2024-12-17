@@ -34,8 +34,8 @@ function Client2({formData}){
             onChange={(e)=> setBrithDay(e.target.value)}
           
             ></input>
-            <label > البلد</label>
-            <input className="form-control mb-2 intsty" placeholder="city" type="text"
+            <label > الرقم القومي</label>
+            <input className="form-control mb-2 intsty" placeholder="national number" type="text"
             value={city}
             onChange={(e)=>SetCity(e.target.value)}
            

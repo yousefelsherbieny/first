@@ -34,7 +34,7 @@ function Tech2({Data}){
             style={{width:'300px'}}
             ></input>
             <label > الرقم القومي</label>
-            <input className="form-control mb-2 intsty" placeholder="city" type="text"
+            <input className="form-control mb-2 intsty" placeholder="national number" type="text"
             required
             value={national}
             onChange={(e)=>setNational(e.target.value)}
