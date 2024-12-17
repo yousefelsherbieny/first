@@ -7,9 +7,11 @@ import './client.css';
 
 function Client( {setFormData}){
     const[Language]=useState('ar');
-    const [firstName,setFirstName]=useState('');
-    const [phone,Setphone]=useState('');
-    const [email,Setemail]=useState('');
+    const [formData,setLocalFormData]=useState({
+        firstName:'',
+        phone:'',
+        email:'',
+    });
     const [profilePicture,SetProfilePicture]=useState('');
     const fileInputRef = useRef(null);
     const Navigate=useNavigate();
@@ -24,9 +26,12 @@ function Client( {setFormData}){
             reader.readAsDataURL(file);
         }
     };
+    const handleChange=(e)=>{
+        setLocalFormData({...formData,[e.target.name]:e.target.value});
+    };
     function Submit(e){
         e.preventDefault();
-        setFormData({firstName,phone,email,profilePicture});
+        setFormData(formData);
         Navigate('/Client2')
      
       }
@@ -67,22 +72,22 @@ function Client( {setFormData}){
              placeholder="name" 
             type="text"
             required
-            value={firstName}
-            onChange={(e)=> setFirstName(e.target.value)}
+          value={formData.firstName}
+            onChange={handleChange}
           
             ></input>
             <label >رقم الهاتف</label>
             <input className="form-control mb-2 intsty" placeholder="phone" type="text"
             required
-            value={phone}
-            onChange={(e)=>Setphone(e.target.value)}
+            value={formData.phone}
+            onChange={handleChange}
             
             ></input>
             <label > البريد الالكتروني</label>
             <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
-            value={email}
-            onChange={(e)=>Setemail(e.target.value)}
+            value={formData.email}
+            onChange={handleChange}
         
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>

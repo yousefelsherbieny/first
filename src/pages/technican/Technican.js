@@ -1,5 +1,6 @@
 import { useState ,useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
+import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 import './tech.css';
@@ -27,7 +28,7 @@ function Tech({setData}){
     };
     function Submit(e){
         e.preventDefault();
-        setData({firstName,phone,email,profilePicture});
+        setData({firstName,phone,email});
         Navigate('/Tech2')
      
       }

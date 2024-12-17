@@ -3,6 +3,7 @@ import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {faLocationCrosshairs} from "@fortawesome/free-solid-svg-icons";
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
 
+
 function Foot(){
     return(
         <footer style={{backgroundColor:'#C38779',color:'#FFFFFF',fontSize:'13px'}}>
@@ -38,6 +39,7 @@ function Foot(){
                 <div>
                     <p>لا تترد في سؤلنا</p>
                     <input type='email' placeholder='Email'></input>
+                    
                    
                 </div>
                 </div>

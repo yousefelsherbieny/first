@@ -3,19 +3,29 @@ import { useNavigate} from "react-router-dom";
 import './client.css';
 
 function Client2({formData}){
+  const [additonalData,setAdditionalData]=useState({national:'',password:'',passwordR:''})
     const[Language]=useState('ar');
     const [brithDay,setBrithDay]=useState('');
-    const [city,SetCity]=useState('');
     const [gover,setGover]=useState('');
     const [address,setAdress]=useState('');
-    const [password,setPassword]=useState('');
-    const [passwordR,SetPasswordR]=useState('');
-    const [accept,setAccept]=useState(false);
+    const [Error,setError]=useState('');
+    
     const Navigate=useNavigate();
     useEffect(()=>{if(formData){console.log('firstform',formData);}},[formData])
+      const handleChange=(e)=>{
+        setAdditionalData({...additonalData, [e.target.name]:e.target.value})
+      }
     function Submit(e){
       e.preventDefault();
-      setAccept(true);
+      if(additonalData.password.length<8){
+        setError(' كلمة المرور لا يجب أن تقل عن 8 أحرف');
+        return;
+      }
+      if(additonalData.password!==additonalData.passwordR){
+        setError('كلمات المرور لا تتطابق')
+      }
+      setError();
+      const finalData={...formData,...additonalData}
       Navigate('/Congra');
     }
     
@@ -35,9 +45,9 @@ function Client2({formData}){
           
             ></input>
             <label > الرقم القومي</label>
-            <input className="form-control mb-2 intsty" placeholder="national number" type="text"
-            value={city}
-            onChange={(e)=>SetCity(e.target.value)}
+            <input className="form-control mb-2 intsty" placeholder="national number" type="text" required
+           name="national"
+            onChange={handleChange}
            
             ></input>
             <label >  المحافظة</label>
@@ -56,21 +66,20 @@ function Client2({formData}){
             <label >   كلمة المرور</label>
             <input className="form-control mb-2 intsty" placeholder="password" type="password"
             required
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
+           name="password"
+            onChange={handleChange}
           
             ></input>
-            {password.length < 8 && accept &&(
-              <p> password must be more than 8  </p>
-            )}
+          
+           
              <label >    تأكيد كلمة المرور</label>
             <input className="form-control mb-2 intsty" placeholder="Repeat Password" type="password"
             required
-            value={passwordR}
-            onChange={(e)=>SetPasswordR(e.target.value)}
+            name="passwordR"
+            onChange={handleChange}
           
             ></input>
-            {passwordR !== password && accept && <p>password dose not match</p>}
+           
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
             <button style={{border:'none', backgroundColor:'#A9543F ', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  >متابعة</button>
             </div>
