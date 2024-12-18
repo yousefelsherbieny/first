@@ -40,12 +40,15 @@ function Client( {setFormData}){
         fileInputRef.current.click();
       };
     return(
-        <div className="parent">
+      
+           
             
-        <div className="register">
+       <div className="parent">
+       <div className="register">
             
      
 <form onSubmit={Submit}  className="sty2 " action="" dir={Language==='ar'?'rtl':'ltr'}>
+    
 <h4  style={{textAlign:'center', marginTop:'5px',fontWeight:'bold'}}>انشاء حساب عميل</h4>
             
         <div style={{marginBottom:'10px',display:'flex',alignItems:'center',justifyContent:'center'}}>
@@ -72,21 +75,21 @@ function Client( {setFormData}){
              placeholder="name" 
             type="text"
             required
-          value={formData.firstName}
+            name="firstName"
             onChange={handleChange}
           
             ></input>
             <label >رقم الهاتف</label>
             <input className="form-control mb-2 intsty" placeholder="phone" type="text"
             required
-            value={formData.phone}
+            name="phone"
             onChange={handleChange}
             
             ></input>
             <label > البريد الالكتروني</label>
             <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
-            value={formData.email}
+           name='email'
             onChange={handleChange}
         
             ></input>
@@ -94,11 +97,12 @@ function Client( {setFormData}){
             <button style={{border:'none', backgroundColor:'#A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  type="submit">متابعة</button>
             </div>
             <h6>هل لديك حساب  بالفعل؟ <Link to='/Log' style={{color:'#A9543F',listStyle:'none',textDecoration:'none'}}>تسجيل الدخول</Link></h6>
-            
+           
         
         </form>
         </div>
         </div>
+    
         
        
         

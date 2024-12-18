@@ -2,19 +2,29 @@ import { useState , useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import './tech.css';
 function Tech2({Data}){
+  const [additonalData,setAdditionalData]=useState({national:'',password:'',passwordR:''})
     const[Language]=useState('ar');
     const [brithDay,setBrithDay]=useState('');
-    const [national,setNational]=useState('');
     const [gover,setGover]=useState('');
-    const [address,setAdress]=useState('');
-    const [password,setPassword]=useState('');
-    const [passwordR,setPasswordR]=useState('');
-    const [accept,setAccept]=useState(false);
+    const [address,setAdress]=useState('')
+    const [Error,setError]=useState('');
     const Navigate=useNavigate();
     useEffect(()=>{if(Data){console.log('firstform',Data);}},[Data])
+      const handleChange=(e)=>{
+        setAdditionalData({...additonalData, [e.target.name]:e.target.value})
+      }
       function Submit(e){
         e.preventDefault();
-        setAccept(true);
+        if(additonalData.password.length<8){
+          setError('كلمة المرور يجب ان لا تقل عن 8 أحرف')
+          return;
+        }
+        if(additonalData.password!==additonalData.passwordR){
+          setError('كلمات المرور لا تتطابق')
+        }
+        setError();
+        const finalData={...Data,...additonalData}
+       
         Navigate('/Congra');
       }
    
@@ -36,13 +46,10 @@ function Tech2({Data}){
             <label > الرقم القومي</label>
             <input className="form-control mb-2 intsty" placeholder="national id" type="text"
             required
-            value={national}
-            onChange={(e)=>setNational(e.target.value)}
+            name="national"
+            onChange={handleChange}
             style={{width:'300px'}}
             ></input>
-            {national.length < 14 && accept &&(
-              <p style={{color:'#A9543F',fontWeight:'15px'}}> National Number uncorrect  </p>
-            )}
             <label >  المحافظة</label>
             <input className="form-control mb-2 intsty" placeholder="Governorate" type="text"
             required
@@ -60,21 +67,17 @@ function Tech2({Data}){
             <label >   كلمة المرور</label>
             <input className="form-control mb-2 intsty" placeholder="password" type="password"
             required
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
+            name="password"
+            onChange={handleChange}
           style={{width:'300px'}}
             ></input>
-             {password.length < 8 && accept &&(
-              <p style={{color:'#A9543F',fontWeight:'15px'}}> password must be more than 8  </p>
-            )}
              <label >    تأكيد كلمة المرور</label>
             <input className="form-control mb-2 intsty" placeholder="confirm" type="password"
             required
-            value={passwordR}
-            onChange={(e)=>setPasswordR(e.target.value)}
+            name="passwordR"
+            onChange={handleChange}
           style={{width:'300px'}}
             ></input>
-            {passwordR !== password && accept && <p>password dose not match</p>}
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
             <button style={{border:'none', backgroundColor:' #A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  >متابعة</button>
             </div>

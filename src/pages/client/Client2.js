@@ -18,7 +18,7 @@ function Client2({formData}){
     function Submit(e){
       e.preventDefault();
       if(additonalData.password.length<8){
-        setError(' كلمة المرور لا يجب أن تقل عن 8 أحرف');
+        setError('كلمة المرور يجب ان لا تقل عن 8 أحرف')
         return;
       }
       if(additonalData.password!==additonalData.passwordR){

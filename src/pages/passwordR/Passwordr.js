@@ -15,12 +15,13 @@ function Passwordr(){
     return(
         <div className="parent">
             <div className="log">
-            <h5 style={{textDecoration:'underline #A9543F 2px '}} dir={Language==='ar'?'rtl':'ltr'}>إعادة تعيين كلمة المرور</h5>
-            <p style={{color:'#9F966E'}}>إعادة تعيين كلمة المرور أدخل البريد الإلكتروني</p>
+            
                 <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
+               <h5 style={{textDecoration:'underline #A9543F 2px '}} dir={Language==='ar'?'rtl':'ltr'}>إعادة تعيين كلمة المرور</h5>
+                <p style={{color:'#9F966E'}}>إعادة تعيين كلمة المرور أدخل البريد الإلكتروني</p>
                 <label style={{color:'#03333A'}}> البريد الالكتروني   </label>
             <input className="form-control mb-2 intsty"
-             placeholder="name" 
+             placeholder="email" 
             type="text"
             required
             value={email}

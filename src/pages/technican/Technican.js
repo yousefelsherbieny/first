@@ -1,14 +1,16 @@
 import { useState ,useRef } from "react";
 import { Link, useNavigate } from 'react-router-dom';
-import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
 import './tech.css';
 function Tech({setData}){
     const[Language]=useState('ar');
-    const [firstName,setFirstName]=useState('');
-    const [phone,Setphone]=useState('');
-    const [email,Setemail]=useState('');
+    const [Data,setLocalFormData]=useState({
+        firstName:'',
+        phone:'',
+        email:'',
+    });
+    
     const [profilePicture,SetProfilePicture]=useState('');
     const Navigate=useNavigate();
     const fileInputRef = useRef(null);
@@ -26,9 +28,12 @@ function Tech({setData}){
         
           
     };
+    const handleChange=(e)=>{
+        setLocalFormData({...Data,[e.target.name]:e.target.value});
+    };
     function Submit(e){
         e.preventDefault();
-        setData({firstName,phone,email});
+      
         Navigate('/Tech2')
      
       }
@@ -71,22 +76,22 @@ function Tech({setData}){
              placeholder="name" 
             type="text"
             required
-            value={firstName}
-            onChange={(e)=> setFirstName(e.target.value)}
+            name="firstName"
+            onChange={handleChange}
            
             ></input>
             <label >رقم الهاتف</label>
             <input className="form-control  intsty" placeholder="phone" type="text"
             required
-            value={phone}
-            onChange={(e)=>Setphone(e.target.value)}
+            name="phone"
+            onChange={handleChange}
            
             ></input>
             <label > البريد الالكتروني</label>
             <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
-            value={email}
-            onChange={(e)=>Setemail(e.target.value)}
+            name="email"
+            onChange={handleChange}
          
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
