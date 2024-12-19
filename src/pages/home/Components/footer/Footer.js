@@ -15,24 +15,27 @@ function Foot(){
                 </div>
               
                 <div>
+                    
                     <h6>المعلومات</h6>
+                    <div style={{display:'flex-Column',alignItems:'center',justifyContent:'center'}}>
                     <p>الرئيسية</p>
                     <p>الخدمات</p>
                     <p>من نحن</p>
                     <p>انضم إلينا</p>  
+                   </div>
             </div>
                 <div>
                     <h6>التواصل</h6>
                     <div style={{display:'flex',justifyContent:'space-evenly'}}>
-                    <FontAwesomeIcon icon={faPhone} />
+                    <FontAwesomeIcon icon={faPhone} style={{marginRight:'2px'}} />
                         <p>+201066047856</p>
                     </div>
                     <div style={{display:'flex',justifyContent:'space-evenly'}}>
-                    <FontAwesomeIcon icon={faLocationCrosshairs} />
+                    <FontAwesomeIcon icon={faLocationCrosshairs}  />
                         <p>Tanta,Egypt</p>
                     </div>
                     <div style={{display:'flex',justifyContent:'space-evenly'}}>
-                    <FontAwesomeIcon icon={faEnvelope} />
+                    <FontAwesomeIcon icon={faEnvelope} style={{marginRight:'4px'}} />
                         <p>Elharfi@gmail.com</p>
                     </div>
                 </div>

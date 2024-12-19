@@ -1,5 +1,6 @@
 import './Navbar.css';
 import { Link,useNavigate } from 'react-router-dom';
+import { useRef } from 'react';
 
 function Navbaar() {
     const Navigate=useNavigate();
@@ -19,9 +20,12 @@ function Navbaar() {
                 <li>
                 <Link className='astyle' style={{color:"#000000",fontWeight:'bold'}}> من نحن </Link>
                 </li>
+              
                 <li> 
                     <Link  className='astyle' style={{color:'#04343E'}} >  خدماتنا  </Link>
                 </li>
+
+
                 
                 <li> 
                     <Link to ='/' className='astyle' style={{color:'#AE9E56'}}> الرئيسية</Link>
@@ -32,4 +36,6 @@ function Navbaar() {
     )
     
 }
+
+
 export default Navbaar;

@@ -10,6 +10,7 @@ import Log from "./pages/log/Log";
 import VerificationCodeInput from "./pages/code/Code";
 import Congra from "./pages/congratulation/Congra";
 import Passwordr from "./pages/passwordR/Passwordr";
+import Passwordr2 from "./pages/passwordR2/Passwordr2";
 import Passdone from "./pages/passwordDone/Passdone";
 import { useState } from "react";
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/Log" element={<Log/>}/>
         <Route path="/Congra" element={<Congra/>}/>
         <Route path="/Passwordr" element={<Passwordr/>}/>
+        <Route path="/Passwordr2" element={<Passwordr2/>}/>
         <Route path="/Passdone" element={<Passdone/>}/>
          <Route path="/VerificationCodeInput" element={<VerificationCodeInput/>}/>
         

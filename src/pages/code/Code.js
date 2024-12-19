@@ -18,7 +18,7 @@ const VerificationCodeInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Entered Code:", codes.join(""));
-    Navigate('/Passdone');
+    Navigate('/Passwordr2');
     
   };
 
