@@ -1,15 +1,30 @@
 import { useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
+import axios from "axios";
 import './log.css';
 function Log(){
     const[Language]=useState('ar');
     const [email,Setemail]=useState('');
-    const [pass,Setpass]=useState('');
+    const [password,Setpassword]=useState('');
+    const [message,setMessage]=useState('')
     const Navigate=useNavigate();
-    function Submit(e){
+   async function Submit(e){
+
         e.preventDefault();
+      
+        try{
+            const response=await axios.post('https://hscoding.runasp.net/api/Users/LogIn',{email,password});
+            setMessage('login is successful');
+            console.log('Token:',response.data.token);
+            Navigate('/Congra');
+
+        }
+        catch(error){
+            setMessage('login failed')
+        }
+        
      
-        Navigate('/Congra')
+       
      
       }
    
@@ -37,8 +52,8 @@ function Log(){
             <label style={{color:'#03333A'}}>كلمة المرور </label>
             <input className="form-control mb-2" placeholder="password" type="password"
             required
-            value={pass}
-            onChange={(e)=>Setpass(e.target.value)}
+            value={password}
+            onChange={(e)=>Setpassword(e.target.value)}
             ></input>
             <Link to= '/Passwordr' style={{color:'#A9543F',listStyle:'none',textDecoration:'none',margin:'5px'}}>هل نسيت كلمة السر</Link>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
