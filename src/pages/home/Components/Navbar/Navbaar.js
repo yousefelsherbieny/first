@@ -9,7 +9,7 @@ function Navbaar() {
             
             <ul className='ulstyle'>
                 
-                <button onClick={()=>Navigate('/Join')}  style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#A9543F'}}>انشاء حساب</button>
+                <button onClick={()=>Navigate('/Client')}  style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#A9543F'}}>انشاء حساب</button>
                 <button onClick={()=>Navigate('/Log')} style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#ffffff',backgroundColor:'#A9543F'}}>تسجيل الدخول</button>
               
                
@@ -18,11 +18,11 @@ function Navbaar() {
                       <Link to ='/Join'  className='astyle' style={{color:'#04343E'}}>  انضم إلينا</Link>
                 </li>
                 <li>
-                <Link className='astyle' style={{color:"#000000",fontWeight:'bold'}}> من نحن </Link>
+                <Link className='astyle' style={{color:"#000000",fontWeight:'bold'}} id='ourview'> من نحن </Link>
                 </li>
               
                 <li> 
-                    <Link  className='astyle' style={{color:'#04343E'}} >  خدماتنا  </Link>
+                    <Link  className='astyle' style={{color:'#04343E'}} id='servise' >  خدماتنا  </Link>
                 </li>
 
 

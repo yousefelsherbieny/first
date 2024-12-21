@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 function Passdone(){
     const[Language]=useState('ar');
     return(
-        <div className="container">
-            <div className="right-section d-flex align-items-center justify-content-center" dir={Language==='ar'?'rtl':'ltr'}>
+        <div className="parent vh-100 m-0">
+           
+            <div className="right-section d-flex me-5 justify-content-between w-50" dir={Language==='ar'?'rtl':'ltr'}>
                 <div>
                 <h4 style={{textDecoration:'underline #A9543F 2px '}}>إعادة تعيين كلمة المرور</h4>
                 <p> تم إعادة تعيين كلمة المرور</p>

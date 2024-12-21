@@ -8,10 +8,10 @@ export default function Join(){
     const [action,setaction]=useState('');
     const handleNext=()=>{
         if(action==='Tech'){
-            Navigate('/Tech');
+            Navigate('/Tech2');
         }
         else if(action==='client'){
-            Navigate('/Client');
+            Navigate('/Congra');
         }
     };
     return(

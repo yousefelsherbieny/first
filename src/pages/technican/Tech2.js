@@ -1,30 +1,18 @@
-import { useState , useEffect } from "react";
+import { useState  } from "react";
 import { useNavigate } from 'react-router-dom';
 import './tech.css';
 function Tech2({Data}){
-  const [additonalData,setAdditionalData]=useState({national:'',password:'',passwordR:''})
+  const [additonalData,setAdditionalData]=useState({tech:'',experiance:'',cv:'',skills:''})
     const[Language]=useState('ar');
-    const [brithDay,setBrithDay]=useState('');
-    const [gover,setGover]=useState('');
-    const [address,setAdress]=useState('')
-    const [Error,setError]=useState('');
+  
+    
     const Navigate=useNavigate();
-    useEffect(()=>{if(Data){console.log('firstform',Data);}},[Data])
+   
       const handleChange=(e)=>{
         setAdditionalData({...additonalData, [e.target.name]:e.target.value})
       }
       function Submit(e){
         e.preventDefault();
-        if(additonalData.password.length<8){
-          setError('كلمة المرور يجب ان لا تقل عن 8 أحرف')
-          return;
-        }
-        if(additonalData.password!==additonalData.passwordR){
-          setError('كلمات المرور لا تتطابق')
-        }
-        setError();
-        const finalData={...Data,...additonalData}
-       
         Navigate('/Congra');
       }
    
@@ -32,49 +20,32 @@ function Tech2({Data}){
       <div className="parent">
         <div className="register">
         <form onSubmit={Submit} className="   sty2 " action="" dir={Language==='ar'?'rtl':'ltr'} >
-        
-          <h4 style={{textAlign:'center', marginTop:'5px',fontWeight:'bold'}}>انشاء حساب حرفي</h4>
-            <label > تاريخ الميلاد</label>
+            <label >  ما هى حرفتك</label>
             <input className="form-control mb-2 intsty"
-             placeholder="brithday" 
             type="text"
             required
-            value={brithDay}
-            onChange={(e)=> setBrithDay(e.target.value)}
-            style={{width:'300px'}}
-            ></input>
-            <label > الرقم القومي</label>
-            <input className="form-control mb-2 intsty" placeholder="national id" type="text"
-            required
-            name="national"
+            name="tech"
             onChange={handleChange}
             style={{width:'300px'}}
             ></input>
-            <label >  المحافظة</label>
-            <input className="form-control mb-2 intsty" placeholder="Governorate" type="text"
+            <label > عدد سنين الخبره </label>
+            <input className="form-control mb-2 intsty"  type="text"
             required
-            value={gover}
-            onChange={(e)=>setGover(e.target.value)}
-          style={{width:'300px'}}
+            name="experiance"
+            onChange={handleChange}
+            style={{width:'300px'}}
             ></input>
-            <label >  العنوان المحلي</label>
-            <input className="form-control mb-2 intsty" placeholder="address" type="text"
+            <label >  السيره الذاتيه</label>
+            <input className="form-control mb-2 intsty"  type=" file"
             required
-            value={address}
-            onChange={(e)=>setAdress(e.target.value)}
-          style={{width:'300px'}}
-            ></input>
-            <label >   كلمة المرور</label>
-            <input className="form-control mb-2 intsty" placeholder="password" type="password"
-            required
-            name="password"
+            name="cv"
             onChange={handleChange}
           style={{width:'300px'}}
             ></input>
-             <label >    تأكيد كلمة المرور</label>
-            <input className="form-control mb-2 intsty" placeholder="confirm" type="password"
+            <label >   المهارات</label>
+            <input className="form-control mb-2 intsty"  type="text"
             required
-            name="passwordR"
+            name="skills"
             onChange={handleChange}
           style={{width:'300px'}}
             ></input>

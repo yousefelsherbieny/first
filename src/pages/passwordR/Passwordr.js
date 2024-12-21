@@ -5,16 +5,26 @@ function Passwordr(){
     const[Language]=useState('ar');
     const [email,Setemail]=useState('');
    
-    const Navigate=useNavigate()
+    const Navigate=useNavigate();
+    const [action,setaction]=useState('');
+    const handleNext=()=>{
+        if(action==='Log'){
+            Navigate('/Log');
+        }
+        else if(action==='passwordR'){
+            Navigate('/VerificationCodeInput');
+        }
+    };
     function Submit(e){
         e.preventDefault();
+        handleNext();
         
-        Navigate('/VerificationCodeInput');
       }
 
     return(
         <div className="parent">
-            <div className="log">
+            
+            <div className="log w-50">
             
                 <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
                <h5 style={{textDecoration:'underline #A9543F 2px '}} dir={Language==='ar'?'rtl':'ltr'}>إعادة تعيين كلمة المرور</h5>
@@ -29,7 +39,10 @@ function Passwordr(){
             
             ></input>
             <div style={{display:'flex',justifyContent:'center'}}>
-          <button  style={{border:'none', backgroundColor:'#A9543F', padding:'10px 60px',color:'#ffffff',marginTop:'5px'}}   > إعادة تعيين</button>
+          <button onClick={()=>setaction('passwordR')} style={{border:'none', backgroundColor:'#A9543F', padding:'10px 60px',color:'#ffffff',marginTop:'5px',borderRadius:'10px'}}   > إعادة تعيين</button>
+          </div>
+          <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
+          <button onClick={()=>setaction('Log')}  style={{border:'1px #A9543F solid ', backgroundColor:'#ffffff', padding:'10px 50px',color:'#A9543F',marginTop:'5px',borderRadius:'10px'}}>  تسجيل الدخول</button>
           </div>
                 </form>
             </div>

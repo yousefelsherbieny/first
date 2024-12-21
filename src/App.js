@@ -27,10 +27,10 @@ function App() {
         
         <Route path= "/Comunicate" element={<Comunicate/>}/>
         <Route path="/Join" element={<Join/>}/>
-        <Route path="/Tech" element={<Tech setData={setData}/>}/>
-        <Route path="/Tech2" element={<Tech2 Data={Data}/>}/>
-        <Route path="/Client" element={<Client setFormData={setFormData}/>}/>
-        <Route path="/Client2" element={<Client2 formData={formData}/>}/>
+        <Route path="/Tech" element={<Tech />}/>
+        <Route path="/Tech2" element={<Tech2 />}/>
+        <Route path="/Client" element={<Client />}/>
+        <Route path="/Client2" element={<Client2 />}/>
         <Route path="/Log" element={<Log/>}/>
         <Route path="/Congra" element={<Congra/>}/>
         <Route path="/Passwordr" element={<Passwordr/>}/>

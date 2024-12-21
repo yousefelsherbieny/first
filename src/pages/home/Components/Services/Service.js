@@ -1,7 +1,7 @@
 import './Service.css';
 function Service(){
     return(
-        <div>
+        <div id='ourview'>
             <div style={{textAlign:'center',color:'#04343E',marginTop:'10px'}}>
             <h4>استكشف خدماتنا</h4>
             <p>اكتشف مجموعة متنوعة من الخدمات المتاحة عبر منصتنا حيث يمكنك العثور <br></br> على الحرفيين المهرة في مجالات مختلفة تلبي احتياجاتك</p>

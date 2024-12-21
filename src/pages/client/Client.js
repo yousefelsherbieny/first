@@ -2,16 +2,20 @@ import { useState,useRef } from "react";
 import { useNavigate ,Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUser} from "@fortawesome/free-solid-svg-icons";
+
 import './client.css';
 
 
-function Client( {setFormData}){
+function Client( ){
     const[Language]=useState('ar');
-    const [formData,setLocalFormData]=useState({
-        firstName:'',
-        phone:'',
-        email:'',
-    });
+    const[password,setPassword]=useState('');
+    const[passwordconfirm,setPasswordconfirm]=useState('');
+    const[firstName,setFirstaName]=useState('');
+    const[lastName,setLastName]=useState('');
+    const[email,setemail]=useState('');
+    const[phone,setphone]=useState('');
+    const[error,setError]=useState('');
+    const [loading, setLoading] = useState(false);
     const [profilePicture,SetProfilePicture]=useState('');
     const fileInputRef = useRef(null);
     const Navigate=useNavigate();
@@ -26,13 +30,43 @@ function Client( {setFormData}){
             reader.readAsDataURL(file);
         }
     };
-    const handleChange=(e)=>{
-        setLocalFormData({...formData,[e.target.name]:e.target.value});
-    };
-    function Submit(e){
+    
+   async function Submit(e){
         e.preventDefault();
-        setFormData(formData);
-        Navigate('/Client2')
+        if (password !== passwordconfirm) {
+            setError('Passwords do not match');
+            return;
+          }
+          setLoading(true); // Set loading to true
+          setError(null); // Reset error
+      
+          const registerData = { email, password }; // Form data to send
+          try {
+            const response = await fetch('https://hscoding.runasp.net/api/Register', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(registerData), // Send form data in request body
+            });
+            if (!response.ok) {
+                throw new Error('Registration failed. Please try again.');
+              
+              }
+        
+              const data = await response.json(); // Get response data
+              console.log('Registration successful', data); // Handle successful registration
+              Navigate('/Join')
+        
+              // Redirect or perform other actions after registration success
+            } catch (err) {
+              setError(err.message); // Set error if registration fails
+            } finally {
+              setLoading(false); // Set loading to false after the request
+            }
+          
+       
+        
      
       }
       const handleH1Click = () => {
@@ -43,24 +77,26 @@ function Client( {setFormData}){
       
            
             
-       <div className="parent">
-       <div className="register">
+       <div className="parent ">
+        <div>
+            <img className="w-100 vh-100 m-0" src={require('../../Images/client/frame.jpg')}/>
+        </div>
+        
+       <div className="register w-75  ">
             
      
-<form onSubmit={Submit}  className="sty2 " action="" dir={Language==='ar'?'rtl':'ltr'}>
-    
-<h4  style={{textAlign:'center', marginTop:'5px',fontWeight:'bold'}}>انشاء حساب عميل</h4>
-            
-        <div style={{marginBottom:'10px',display:'flex',alignItems:'center',justifyContent:'center'}}>
+<form onSubmit={Submit}  className="sty2  " action="" dir={Language==='ar'?'rtl':'ltr'}>
+
+        <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
             {profilePicture ?(
                 <img 
                 src={profilePicture}
                 alt="profile"
-                style={{width:'150px',height:'150px',borderRadius:'50%'}}/>
+                style={{width:'130px',height:'130px',borderRadius:'50%',marginTop:'5px'}}/>
             ):(
                 <div style={{width:'80px',height:'80px',borderRadius:'50%',backgroundColor:'#e0e0e0',display:'flex',alignItems:'center',justifyContent:'center'}}>
+                   <FontAwesomeIcon icon={faUser}  />
                   
-                  <FontAwesomeIcon icon={faUser}  />
                     </div> 
                 )}
         </div>    
@@ -70,27 +106,50 @@ function Client( {setFormData}){
     <div>
         <input type="file" accept="image/*" ref={fileInputRef} style={{display:'none'}} onChange={handleimageupload}></input>
     </div>
-            <label >الاسم كامل</label>
+            <label >الاسم الاول</label>
             <input className="form-control mb-2 intsty"
              placeholder="name" 
             type="text"
             required
-            name="firstName"
-            onChange={handleChange}
+            value={firstName}
+            onChange={ (e)=>setFirstaName (e.target.value)}
+          
+            ></input>
+             <label >الاسم الثاني</label>
+            <input className="form-control mb-2 intsty"
+             placeholder="name" 
+            type="text"
+            required
+            value={lastName}
+            onChange={(e)=>setLastName(e.target.value)}
+          
+            ></input>
+             <label >   كلمة المرور</label>
+            <input className="form-control mb-2 intsty" placeholder="password" type="password"
+            required
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
           
             ></input>
             <label >رقم الهاتف</label>
             <input className="form-control mb-2 intsty" placeholder="phone" type="text"
-            required
-            name="phone"
-            onChange={handleChange}
+            
+           value={phone}
+            onChange={(e)=>setphone(e.target.value)}
             
             ></input>
             <label > البريد الالكتروني</label>
             <input className="form-control mb-2 intsty" placeholder="email" type="email"
             required
-           name='email'
-            onChange={handleChange}
+            value={email}
+            onChange={(e)=>setemail(e.target.value)}
+        
+            ></input>
+             <label >  تأكيد كلمة المرور  </label>
+            <input className="form-control mb-2 intsty" placeholder="text" type="password"
+            
+           value={passwordconfirm}
+            onChange={(e)=>setPasswordconfirm(e.target.value)}
         
             ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>

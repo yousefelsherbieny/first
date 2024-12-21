@@ -2,10 +2,10 @@ import { useState } from 'react';
 function Ourview() {
    const[Language]=useState('ar');
     return(
-     <div>
+     <div id='servise'>
       <h3 dir={Language==='ar'?'rtl':'ltr'} style={{marginTop:'20px', fontWeight:'bold',color:'#04343E',marginRight:'15px'}}>خدماتنا</h3>
       <div style={{backgroundColor:'#A9543F'}}>
-        
+        <img src={require('../../../../Images/ourview/Vector (2).png')} alt=''/>
     <div style={{ display:'flex',justifyContent:'space-evenly'}} >
        
         <div className=' ms-5 p-4 ' >

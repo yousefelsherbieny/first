@@ -6,32 +6,50 @@ function Log(){
     const[Language]=useState('ar');
     const [email,Setemail]=useState('');
     const [password,Setpassword]=useState('');
-    const [message,setMessage]=useState('')
+    const [loading,setLoading]=useState(false);
+    const [error,setError]=useState(false)
     const Navigate=useNavigate();
    async function Submit(e){
 
         e.preventDefault();
+        setLoading(true);
+        setError(null);
+        const loginData={email,password};
+          try{
+            const response=await fetch('https://hscoding.runasp.net/api/Users/LogIn',
+                {
+                    method:'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                      },
+                      body: JSON.stringify(loginData), // Send form data in request body
+                    });
+                    if (!response.ok) {
+                        throw new Error('Login failed. Please try again.');
+                      }
+                
+                      const data = await response.json(); // Get response data
+                      console.log('Login successful', data); // Handle successful login (e.g., store token)
+                      Navigate('/congra')
+                
+                      // Redirect or perform other actions after login success
+                    } catch (err) {
+                      setError(err.message); // Set error if login fails
+                    } finally {
+                      setLoading(false); // Set loading to false after the request
+                    }
+                  };
+            
+                
+            
+            
       
-        try{
-            const response=await axios.post('https://hscoding.runasp.net/api/Users/LogIn',{email,password});
-            setMessage('login is successful');
-            console.log('Token:',response.data.token);
-            Navigate('/Congra');
-
-        }
-        catch(error){
-            setMessage('login failed')
-        }
-        
-     
-       
-     
-      }
    
     return(
        
         <div className="parent">
-            <div  className="log" >
+            
+            <div  className="log w-50" >
             
         <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
         
@@ -59,19 +77,21 @@ function Log(){
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
             <button style={{border:'none', backgroundColor:'#A9543F', padding:'10px 30px',color:'#ffffff',borderRadius:'15px',marginTop:'5px'}}   >تسجيل الدخول</button>
             </div>
-            <h6 style={{marginTop:'5px'}}>عضو جديد على الحرفي؟ <Link to ='/Join' style={{color:'#A9543F',listStyle:'none',textDecoration:'none'}}>انضم إلينا </Link></h6>
+            <h6 style={{marginTop:'5px'}}>عضو جديد على الحرفي؟ <Link to ='/Client' style={{color:'#A9543F',listStyle:'none',textDecoration:'none'}}>انضم إلينا </Link></h6>
           
             
         </form>
+        {error&&<div>{error}</div>}{/*Show error if any*/}
         </div>
         </div>
        
        
-        
+
        
     )
-    
 }
+    
+
 
 
 export default Log;
