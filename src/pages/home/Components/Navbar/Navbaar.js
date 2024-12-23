@@ -1,6 +1,6 @@
 import './Navbar.css';
 import { Link,useNavigate } from 'react-router-dom';
-import { useRef } from 'react';
+
 
 function Navbaar() {
     const Navigate=useNavigate();
@@ -9,16 +9,16 @@ function Navbaar() {
             
             <ul className='ulstyle'>
                 
-                <button onClick={()=>Navigate('/Client')}  style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#A9543F'}}>انشاء حساب</button>
-                <button onClick={()=>Navigate('/Log')} style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#ffffff',backgroundColor:'#A9543F'}}>تسجيل الدخول</button>
+                <button className='stl' onClick={()=>Navigate('/Client')}  style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#A9543F'}}>انشاء حساب</button>
+                <button className='stl stl2'  onClick={()=>Navigate('/Log')} style={{border:'solid 2px #A9543F',borderRadius:'20px',padding:'9px',color:'#ffffff',backgroundColor:'#A9543F'}}>تسجيل الدخول</button>
               
                
                 <li> 
                     
-                      <Link to ='/Join'  className='astyle' style={{color:'#04343E'}}>  انضم إلينا</Link>
+                      <Link to ='/Client'  className='astyle' style={{color:'#04343E'}}>  انضم إلينا</Link>
                 </li>
                 <li>
-                <Link className='astyle' style={{color:"#000000",fontWeight:'bold'}} id='ourview'> من نحن </Link>
+                <Link to='Ourview' smooth={true} duration={500} className='astyle' style={{color:"#000000",fontWeight:'bold'}} > من نحن </Link>
                 </li>
               
                 <li> 

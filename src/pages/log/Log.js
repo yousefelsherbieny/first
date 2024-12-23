@@ -30,7 +30,7 @@ function Log(){
                 
                       const data = await response.json(); // Get response data
                       console.log('Login successful', data); // Handle successful login (e.g., store token)
-                      Navigate('/congra')
+                      Navigate('/HomeAfterLog');
                 
                       // Redirect or perform other actions after login success
                     } catch (err) {

@@ -6,7 +6,7 @@ function Service(){
             <h4>استكشف خدماتنا</h4>
             <p>اكتشف مجموعة متنوعة من الخدمات المتاحة عبر منصتنا حيث يمكنك العثور <br></br> على الحرفيين المهرة في مجالات مختلفة تلبي احتياجاتك</p>
             </div>
-        <div style={{display:'flex',textAlign:'center',justifyContent:'space-evenly',marginTop:'15px',color:'#04343E'}}>
+        <div style={{display:'flex',textAlign:'center',justifyContent:'space-evenly',marginTop:'15px',color:'#04343E'}} className='styl'>
             <div>
                 <img src={ require('../../../../Images/service/photo1.jpg')} alt=''width={'350px'}/>
                 <h4>الصيانة والإصلاحات</h4>

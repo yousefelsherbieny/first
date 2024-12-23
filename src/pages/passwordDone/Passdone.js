@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import './passdone.css';
 function Passdone(){
     const[Language]=useState('ar');
     return(
-        <div className="parent vh-100 m-0">
+        <div className="parent vh-100 m-0 par">
            
             <div className="right-section d-flex me-5 justify-content-between w-50" dir={Language==='ar'?'rtl':'ltr'}>
                 <div>

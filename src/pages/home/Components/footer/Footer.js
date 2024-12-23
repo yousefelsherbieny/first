@@ -2,11 +2,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import {faLocationCrosshairs} from "@fortawesome/free-solid-svg-icons";
 import {faPhone} from "@fortawesome/free-solid-svg-icons";
-
+import './footer.css';
 
 function Foot(){
     return(
-        <footer style={{backgroundColor:'#C38779',color:'#FFFFFF',fontSize:'13px'}}>
+        <footer className="fsty" style={{backgroundColor:'#C38779',color:'#FFFFFF',fontSize:'13px'}}>
             <img src={require('../../../../Images/navbar/logo.png')} alt='' width={'60px'}/>
              <div style={{display:'flex',justifyContent:'space-evenly'}}>
                 <div>

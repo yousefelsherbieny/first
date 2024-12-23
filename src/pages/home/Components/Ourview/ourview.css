@@ -1,0 +1,12 @@
+@media screen and (max-width:768px){
+    .stly{
+       flex-direction: column; 
+    }
+    .stly2{
+        width: 70px;
+    }
+    .styles{
+        
+        transform: translateX(50%);
+    }
+}

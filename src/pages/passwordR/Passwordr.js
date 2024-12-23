@@ -39,10 +39,10 @@ function Passwordr(){
             
             ></input>
             <div style={{display:'flex',justifyContent:'center'}}>
-          <button onClick={()=>setaction('passwordR')} style={{border:'none', backgroundColor:'#A9543F', padding:'10px 60px',color:'#ffffff',marginTop:'5px',borderRadius:'10px'}}   > إعادة تعيين</button>
+          <button className="butt2" onClick={()=>setaction('passwordR')} style={{border:'none', backgroundColor:'#A9543F', padding:'10px 60px',color:'#ffffff',marginTop:'5px',borderRadius:'10px'}}   > إعادة تعيين</button>
           </div>
           <div style={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-          <button onClick={()=>setaction('Log')}  style={{border:'1px #A9543F solid ', backgroundColor:'#ffffff', padding:'10px 50px',color:'#A9543F',marginTop:'5px',borderRadius:'10px'}}>  تسجيل الدخول</button>
+          <button className="butt2" onClick={()=>setaction('Log')}  style={{border:'1px #A9543F solid ', backgroundColor:'#ffffff', padding:'10px 50px',color:'#A9543F',marginTop:'5px',borderRadius:'10px'}}>  تسجيل الدخول</button>
           </div>
                 </form>
             </div>

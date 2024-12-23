@@ -46,4 +46,11 @@
     .astyle{
         padding: 5px 3px;
     }
+    .stl{
+        padding: 5px;
+        border-radius:10px ;
+    }
+    .stl2{
+        margin-top: 4px;
+    }
 }

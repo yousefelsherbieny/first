@@ -42,3 +42,15 @@ body .container{
    
     margin-top: 40px;
 }
+@media screen and (max-width:768px){
+ body .container {
+       width: 350px;
+       margin-top: 40px;
+      }
+      .sty2{
+        width: 50%;
+      }
+      .intsty{
+        width: 30%;
+      }
+  }

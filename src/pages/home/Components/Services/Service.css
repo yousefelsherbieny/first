@@ -7,4 +7,10 @@
 .textStyle{
     color:'#04343E'
 }
+@media screen and (max-width:768px){
+    .styl{
+      flex-direction: column;
+
+    }
+}
 

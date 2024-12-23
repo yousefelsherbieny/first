@@ -36,16 +36,16 @@ function Client( ){
     
    async function Submit(e){
         e.preventDefault();
-        if (password !== passwordconfirm) {
+       /*  if (password !== passwordconfirm) {
             setError('Passwords do not match');
             return;
-          }
+          }*/
           setLoading(true); // Set loading to true
           setError(null); // Reset error
       
-          const registerData = { email, password }; // Form data to send
+          const registerData = { firstName,lastName,password,phone,email}; // Form data to send
           try {
-            const response = await fetch('https://hscoding.runasp.net/api/Register', {
+            const response = await fetch('https://hscoding.runasp.net/api/Users/Register', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ function Client( ){
         
               const data = await response.json(); // Get response data
               console.log('Registration successful', data); // Handle successful registration
-             
+              Navigate('/Join')
         
               // Redirect or perform other actions after registration success
             } catch (err) {
@@ -69,7 +69,7 @@ function Client( ){
             }
           
        
-            Navigate('/Join')
+          
      
       }
       const handleH1Click = () => {
@@ -146,13 +146,7 @@ function Client( ){
             onChange={(e)=>setemail(e.target.value)}
         
             ></input>
-             <label >  تأكيد كلمة المرور  </label>
-            <input className="form-control mb-2 intsty" placeholder="text" type="password"
             
-           value={passwordconfirm}
-            onChange={(e)=>setPasswordconfirm(e.target.value)}
-        
-            ></input>
             <div style={{display:'flex', justifyContent:'center',alignItems:'center'}}>
             <button style={{border:'none', backgroundColor:'#A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  type="submit">متابعة</button>
             </div>
