@@ -15,11 +15,11 @@ function Passwordr2(){
     return(
         <div className="parent">
           
-            <div className="log w-50">
+            <div className="container w-25 align-items-center">
             
                 <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
                <h5 style={{textDecoration:'underline #A9543F 2px '}} dir={Language==='ar'?'rtl':'ltr'}>إعادة تعيين كلمة المرور</h5>
-                <p style={{color:'#9F966E'}}>إعادة تعيين كلمة المرور أدخل البريد الإلكتروني</p>
+                <p style={{color:'#9F966E'}}>إعادة تعيين كلمة المرور أدخل رقم مرور جديد</p>
                 <label style={{color:'#03333A'}}> رقم مرور جديد    </label>
             <input className="form-control mb-2 intsty"
              placeholder="password" 

@@ -49,9 +49,9 @@ function Log(){
        
         <div className="parent">
             
-            <div  className="log w-50" >
+            <div  className="log  container d-flex justify-content-between " >
             
-        <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
+        <form onSubmit={Submit} className=" sty2 " action="" dir={Language==='ar'?'rtl':'ltr'}>
         
            
         <div style={{textAlign:'center',color:'#03333E',marginTop:'10px'}}>

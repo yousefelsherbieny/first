@@ -15,7 +15,7 @@ export default function Join(){
         }
     };
     return(
-       <div className='container' >
+       <div className='contain' >
         
         <div className='right-section text-center d-flex align-items-center '>
             <div>

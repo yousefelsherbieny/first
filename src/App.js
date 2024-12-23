@@ -12,10 +12,9 @@ import Congra from "./pages/congratulation/Congra";
 import Passwordr from "./pages/passwordR/Passwordr";
 import Passwordr2 from "./pages/passwordR2/Passwordr2";
 import Passdone from "./pages/passwordDone/Passdone";
-import { useState } from "react";
+;
 function App() {
-  const [formData,setFormData]=useState(null);
-  const [Data,setData]=useState(null);
+ 
   return (
     <div className="App">
       
@@ -25,7 +24,7 @@ function App() {
        <Routes>
         <Route path= "/" element={<Home/>}/>
         
-        <Route path= "/Comunicate" element={<Comunicate/>}/>
+       
         <Route path="/Join" element={<Join/>}/>
         <Route path="/Tech" element={<Tech />}/>
         <Route path="/Tech2" element={<Tech2 />}/>

@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import './congra.css';
 function Congra(){
     const[Language]=useState('ar');
  return(
-    <div className="container">
+    <div className='container'>
         <div className="right-section" dir={Language==='ar'?'rtl':'ltr'}>
+            
             <h2>تهانينا</h2>
             <hr style={{color:'#A9543F'}}></hr>
             <p style={{color:'#9F966E'}}> لقد تم إنشاء حسابك بنجاح</p>
@@ -12,6 +14,7 @@ function Congra(){
             <button  style={{backgroundColor:'#A9543F',border:'none',color:'white',padding:'3px 35px',marginTop:'10px'}}>التالي</button>
             </div>
         </div>
+       
     </div>
  )
 }

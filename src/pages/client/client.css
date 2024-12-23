@@ -1,19 +1,19 @@
-body{
+body .parent{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url('../../Images/client/6d538117-49cb-42a8-af83-e796355943cf.jpg');
+    
+    height: 100vh;
+    background-size: cover;
+    background-position: center center;
     margin: 0;
+   
 }
-.parent{
-    display: flex;
-    justify-content: space-between;
-    
-    
-    
 
-}
+
 
 .sty2{
-   width: 75%;
-    
+   width: 100%;
+  
     padding: 20px;
     margin-top: '20px';
 }
@@ -21,17 +21,23 @@ body{
     padding: 10px 20px;
     outline: none;
     border: 2px solid white;
-    width: 75%;
+    width: 25%;
+  
     transition: 0.3s;
     margin-bottom: 8px;
 }
 .intsty:focus{
     border: 2px solid #A9543F;
 }
-.register{
+body .container{
     display: flex;
     justify-content: space-between;
-   
+    margin-bottom: 80px;
+    width: 550px;
+    margin-right: 100px;
+    height: 100vh;
     margin-top: 100px;
  
+ 
 }
+

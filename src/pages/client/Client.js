@@ -15,21 +15,24 @@ function Client( ){
     const[email,setemail]=useState('');
     const[phone,setphone]=useState('');
     const[error,setError]=useState('');
+    const[preview,setPreview]=useState('');
     const [loading, setLoading] = useState(false);
     const [profilePicture,SetProfilePicture]=useState('');
     const fileInputRef = useRef(null);
     const Navigate=useNavigate();
-    const handleimageupload=(e)=>{
-        const file=e.target.file[''];
-        if(file){
-            const reader=new FileReader();
-            reader.onloadend=()=>{
-                SetProfilePicture(reader.result);
-
-            }
-            reader.readAsDataURL(file);
-        }
-    };
+    const handleFileChange = async (e) => {
+        const file = e.target.files[0];
+    
+        if (file) {
+          // عرض معاينة الصورة
+          const reader = new FileReader();
+          reader.onloadend = () => setPreview(reader.result);
+          reader.readAsDataURL(file);
+    
+          // رفع الصورة
+          const formData = new FormData();
+          formData.append("profilePicture", file);
+        }}
     
    async function Submit(e){
         e.preventDefault();
@@ -56,7 +59,7 @@ function Client( ){
         
               const data = await response.json(); // Get response data
               console.log('Registration successful', data); // Handle successful registration
-              Navigate('/Join')
+             
         
               // Redirect or perform other actions after registration success
             } catch (err) {
@@ -66,7 +69,7 @@ function Client( ){
             }
           
        
-        
+            Navigate('/Join')
      
       }
       const handleH1Click = () => {
@@ -78,11 +81,9 @@ function Client( ){
            
             
        <div className="parent ">
-        <div>
-            <img className="w-100 vh-100 m-0" src={require('../../Images/client/frame.jpg')}/>
-        </div>
+       
         
-       <div className="register w-75  ">
+       <div className="  container ">
             
      
 <form onSubmit={Submit}  className="sty2  " action="" dir={Language==='ar'?'rtl':'ltr'}>
@@ -104,7 +105,7 @@ function Client( ){
              <h6 onClick={handleH1Click}   style={{color:'#A9543F', fontWeight:'600', fontSize:'18px',cursor:'pointer'}} >إضافة صورة شخصية</h6>
     </div>
     <div>
-        <input type="file" accept="image/*" ref={fileInputRef} style={{display:'none'}} onChange={handleimageupload}></input>
+        <input type="file" accept="image/*" ref={fileInputRef} style={{display:'none'}} onChange={handleFileChange}></input>
     </div>
             <label >الاسم الاول</label>
             <input className="form-control mb-2 intsty"
@@ -161,6 +162,7 @@ function Client( ){
         </form>
         </div>
         </div>
+        
     
         
        

@@ -23,7 +23,7 @@ const VerificationCodeInput = () => {
   };
 
   return (
-    <div className="container">
+    <div className="contain">
     <div style={{display:'flex',alignItems:'center',justifyContent:'space-evenly'}}>
     <form onSubmit={handleSubmit}>
        

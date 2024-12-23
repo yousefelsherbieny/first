@@ -24,7 +24,7 @@ function Passwordr(){
     return(
         <div className="parent">
             
-            <div className="log w-50">
+            <div className=" container w-25 align-items-center">
             
                 <form onSubmit={Submit} className=" sty2" action="" dir={Language==='ar'?'rtl':'ltr'}>
                <h5 style={{textDecoration:'underline #A9543F 2px '}} dir={Language==='ar'?'rtl':'ltr'}>إعادة تعيين كلمة المرور</h5>

@@ -9,6 +9,18 @@ body{
     height: 80vh;
 
 }
+body .container{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+    width: 550px;
+    margin-right: 100px;
+    height: 100vh;
+    margin-top: 100px;
+    
+ 
+ 
+}
 .sty2{
     width: 100%;
    
