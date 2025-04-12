@@ -1,0 +1,248 @@
+.content{
+
+
+background-color: #fcfcfc;
+.prof {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  align-items: center;
+
+  .contain {
+    margin-top: 4em;
+
+    .prof-img {
+      position: relative;
+      width: 10em;
+      height: 10em;
+      border-radius: 50%;
+      .prof-img-layer {
+        position: absolute;
+        right: 1em;
+        bottom: 1em;
+        svg {
+          width: 2.2em;
+          height: 2.2em;
+          font-size: smaller;
+          padding: 0.6em;
+          border-radius: 50%;
+          background-color: #a9543f;
+          color: white;
+        }
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+      }
+    }
+  }
+  .add-work-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-size: 1.5em;
+      color: rgba(0, 0, 0, 0.377);
+    }
+    svg {
+      width: 2.5em;
+      height: 2.5em;
+      color: rgba(0, 0, 0, 0.377);
+    }
+  }
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 40%;
+    .name {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      height: 6em;
+      label {
+        padding-inline-start: 1em;
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+      }
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.473);
+        border-radius: 1em;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+      }
+    }
+    .email {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      height: 6em;
+
+      label {
+        padding-inline-start: 1em;
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+      }
+
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.473);
+        border-radius: 1em;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        
+      }
+    }
+    .phone {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      height: 6em;
+
+      label {
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+        padding-inline-start: 1em;
+      }
+
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.473);
+        border-radius: 1em;
+        text-align: center;
+        font-weight: 500;
+        height: 100%;
+        width: 100%;
+        
+      }
+    }
+    .add {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      height: 6em;
+
+      label {
+        padding-inline-start: 1em;
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+      }
+
+      input {
+        border: 1px solid rgba(0, 0, 0, 0.473);
+        font-weight: 600;
+        border-radius: 1em;
+        text-align: center;
+        height: 100%;
+        width: 100%;
+        margin: auto;
+      }
+    }
+    .cv {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+      label {
+        padding-inline-start: 1em;
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+      }
+      .cv-text {
+        height: 10em;
+        width: 100%;
+        textarea {
+            border: 1px solid rgba(0, 0, 0, 0.473);
+          border-radius: 1em;
+          padding-inline: 1em;
+          height: 100%;
+          width: 100%;
+          resize: none;
+          overflow-y: hidden;
+        }
+      }
+    }
+    .props {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7em;
+
+      label {
+        padding-inline-start: 1em;
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+      }
+      .props-li {
+        padding-block: 1em;
+        height: 14em;
+        border-radius: 1em;
+        padding-inline: 1em;
+        border: 1px solid rgba(0, 0, 0, 0.473);
+
+        li {
+        }
+      }
+    }
+    .skills {
+        width: 100%;
+      label {
+        padding-inline-start: 1em;
+        margin-bottom: 0.5em;
+        font-size: 1em;
+        color: rgba(0, 0, 0, 0.473);
+      }
+      .skills-text {
+        margin-bottom: 3em;
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          gap: .8em;
+          padding-inline-start: 0;
+          li {
+            padding-block: 0.5em;
+            padding-inline: 0.5em;
+            border-radius: 2em;
+            list-style: none;
+            background: #e3e3e3;
+          }
+        }
+      }
+    }
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+    margin-bottom: 3em;
+
+    .save {
+      button {
+        border: none;
+        background-color: rgb(169, 84, 63);
+        padding: 10px 30px;
+        color: rgb(255, 255, 255);
+        border-radius: 15px;
+      }
+    }
+    .ignore {
+      button {
+        border: 1px solid black;
+        background-color: white;
+        padding: 10px 30px;
+        color: black;
+        border-radius: 15px;
+      }
+    }
+  }
+}
+}
