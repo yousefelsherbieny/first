@@ -1,80 +1,91 @@
-import { useState  } from "react";
+import { useState ,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
 import './tech.css';
 function Tech2(){
-  const [additonalData,setAdditionalData]=useState({jopId:'',skillDescription: "",
-    experienceYears: "",
-    location: "",
-    hourlyRateAtHire: "",
-    userId: "",})
+  const [formData, setFormData]=useState({
+    JobId: '',
+    SkillDescription: '',
+    ExperienceYears: '',
+    Location: '',
+    HourlyRateAtHire: '',
+    NationalImage: '',
+    UserId: '',
+    formFile: null,
+  })
     const[Language]=useState('ar');
     const[skills,setSkills]=useState('')
   const [loading,setLoading]=useState(false);
 const [error,setError]=useState(false);
     
     const Navigate=useNavigate();
-    const handleSkillchange=(index,event)=>{
-      const newSkillls=[...skills];
-      newSkillls[index]=event.target.value;
-      setSkills(newSkillls);
+  
+    const [image, setImage] = useState(null);
+    const [preview, setPreview] = useState(null);
+    const [selectedFile, setSelectedFile] = useState(null);
+      useEffect(() => {
+    // أول ما الصفحة تفتح، نجيب الـ userId من localStorage ونحطه
+     const storedUserId = localStorage.getItem('UserId');
+    if (storedUserId) {
+      setFormData(prevData => ({
+        ...prevData,
+         UserId: storedUserId,
+      }));
     }
-   
-      const handleChange=(e)=>{
-        setAdditionalData({...additonalData, [e.target.name]:e.target.value})
+  }, []);
+    
+    const handleChange = (e) => {
+      const { name, value, files } = e.target;
+      if (files && files.length > 0) {
+        setFormData({ ...formData, [name]: files[0] });
+        setPreview(URL.createObjectURL(files[0]));
+      } else {
+        setFormData({ ...formData, [name]: value });
       }
-      const addSkill = () => {
-        setSkills([...skills, '']);
-      };
+    };
+
+   
+     /* const handleChange=(e)=>{
+        setAdditionalData({...additonalData, [e.target.name]:e.target.value})
+      }*/
       
-      /*let skillElements = [''];
-      skills.forEach((skill, index) => {
-        skillElements.push(
-          <input
-            key={index}
-            type="text"
-            value={skill}
-            onChange={(event) => handleSkillchange(index, event)}
-            placeholder={`ادخل المهارة ${index + 1}`}
-          />
-        );
-      });*/
+      
+      
     async  function Submit(e){
         e.preventDefault();
+        if (!formData.formFile) {
+          alert('من فضلك ارفع صورة شخصية');
+          return;
+        }
+        const data = new FormData();
+    for (const key in formData) {
+      data.append(key, formData[key]);
+    }
+     
+    
         setLoading(true);
         setError(null);
         
-          try{
-            const response=await fetch("https://hscoding.runasp.net/api/Techinican/Add",
-                {
-                    method:'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                      },
-
-                      body: JSON.stringify(additonalData), // Send form data in request body
-                    });
-                    if (!response.ok) {
-                        throw new Error('Login failed. Please try again.');
-                      }
-                
-                      const data = await response.json(); // Get response data
-                      console.log('Login successful', data); // Handle successful login (e.g., store token)
-                      Navigate('/HomeAfterLog');
-                
-                      // Redirect or perform other actions after login success
-                    } catch (err) {
-                      setError(err.message); // Set error if login fails
-                    } finally {
-                      setLoading(false); // Set loading to false after the request
-                    }
-                  
-                  };
-            
-    
+        try {
+          const response = await axios.post(
+            'https://hscoding.runasp.net/api/Techinican/Add',
+            data,
+            {
+              headers: {
+                'Content-Type': 'multipart/form-data',
+              },
+            }
+          );
+          alert('تم الإرسال بنجاح');
+          console.log(response.data);
+        } catch (error) {
+          console.error('خطأ في الإرسال:', error);
         
-   
+         
+        }
+        Navigate('/HomeAfterLog ');
+      };
             
 
         
@@ -88,44 +99,49 @@ const [error,setError]=useState(false);
             <input className="form-control mb-2 intsty"
             type="text"
             required
-            name="JopId"
+            name="JobId"
             onChange={handleChange}
            
             ></input>
             <label >    المهارات: </label>
             <input className="form-control mb-2 intsty"  type="text"
             required
-            name="skillDescription"
+            name="SkillDescription"
             onChange={handleChange}
           
             ></input>
             <label >  سنوات الخبرة: </label>
-            <input className="form-control mb-2 intsty"  type=" file"
+            <input className="form-control mb-2 intsty"  type="text"
             required
-            name=" experienceYears"
+            name="ExperienceYears"
             onChange={handleChange}
          
             ></input>
              <label >  الموقع:  </label>
-            <input className="form-control mb-2 intsty"  type=" file"
+            <input className="form-control mb-2 intsty"  type="text"
             required
-            name="location"
+            name="Location"
             onChange={handleChange} 
             ></input>
              <label >  الأجر بالساعة عند التوظيف:  </label>
-            <input className="form-control mb-2 intsty"  type=" file"
+            <input className="form-control mb-2 intsty"  type="text"
             required
-            name="hourlyRateAtHire"
+            name="HourlyRateAtHire"
             onChange={handleChange} 
             ></input>
-             <label >  معرّف المستخدم:  </label>
-            <input className="form-control mb-2 intsty"  type=" file"
+            <label>رابط الصورة القومية:</label>
+            <input className="form-control mb-2 intsty" type="text" name="NationalImage" onChange={handleChange} />
+
+             <label>  معرّف المستخدم:  </label>
+            <input className="form-control mb-2 intsty"  type="text"
             required
-            name=" userId"
+            name="UserId"
             onChange={handleChange} 
-            ></input>
-            
           
+            ></input>
+             <label>الصورة الشخصية:</label>
+             <input type="file" name="formFile" accept="image/*" onChange={handleChange} />
+             
            
             <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
             <button style={{border:'none', backgroundColor:' #A9543F', padding:'10px 15px',color:'#ffffff',borderRadius:'15px'}}  >متابعة</button>
