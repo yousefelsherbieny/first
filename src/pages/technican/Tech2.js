@@ -4,16 +4,17 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './tech.css';
 function Tech2(){
-  const [formData, setFormData]=useState({
-    JobId: '',
-    SkillDescription: '',
-    ExperienceYears: '',
-    Location: '',
-    HourlyRateAtHire: '',
-    NationalImage: '',
-    UserId: '',
+  const [formData, setFormData] = useState({
+    jopId: '',
+    skillDescription: "",
+    experienceYears: "",
+    location: "",
+    hourlyRateAtHire: "",
+    nationalImage: "",
+    userId: "",
     formFile: null,
-  })
+  });
+  
     const[Language]=useState('ar');
     const[skills,setSkills]=useState('')
   const [loading,setLoading]=useState(false);
@@ -68,24 +69,35 @@ const [error,setError]=useState(false);
         setError(null);
         
         try {
-          const response = await axios.post(
-            'https://hscoding.runasp.net/api/Techinican/Add',
-            data,
-            {
-              headers: {
-                'Content-Type': 'multipart/form-data',
-              },
-            }
-          );
-          alert('تم الإرسال بنجاح');
-          console.log(response.data);
-        } catch (error) {
-          console.error('خطأ في الإرسال:', error);
-        
+          const response = await axios.post('https://hscoding.runasp.net/api/Techinican/Add', formData, {
+           
+            headers: {
+             // 'Content-Type': 'multipart/form-data'
+            },
+          
+          });
+    
+          const responseData = await response.json();
+          console.log('استجابة السيرفر:', responseData);
+    
+          if (!response.ok) {
+            console.log("تفاصيل الخطأ:", responseData.errors); 
+            throw new Error(responseData.message || 'حدث خطأ أثناء التسجيل.');
+          }
+    
+          console.log('تم التسجيل بنجاح:', responseData);
+    
+          // توجيه المستخدم بناءً على اختياره
          
+        } catch (err) {
+          setError(err.message);
+          console.error('خطأ في التسجيل:', err);
         }
-        Navigate('/HomeAfterLog ');
       };
+  
+
+
+
             
 
         

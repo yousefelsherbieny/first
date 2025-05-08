@@ -229,7 +229,7 @@ function Client( ){
             ></input>
              <label > البريد الالكتروني </label>
             <input className="form-control mb-2 intsty"
-             placeholder="name" 
+             placeholder="email" 
             type="email"
             required
             value={email}
@@ -244,14 +244,14 @@ function Client( ){
           
             ></input>
             <label >رقم القومي</label>
-            <input className="form-control mb-2 intsty" placeholder="phone" type="text"
+            <input className="form-control mb-2 intsty" placeholder="NtionalNumber" type="text"
             
            value={NationalId}
             onChange={(e)=>setNationalId(e.target.value)}
             
             ></input>
             <label > رقم الهاتف </label>
-            <input className="form-control mb-2 intsty" placeholder="email" type="text"
+            <input className="form-control mb-2 intsty" placeholder="phone" type="text"
             required
             value={phoneNumber}
             onChange={(e)=>setphoneNumber(e.target.value)}
