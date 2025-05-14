@@ -12,9 +12,10 @@ function Tech2(){
     hourlyRateAtHire: "",
     nationalImage: "",
     userId: "",
-    formFile: null,
+    formFile:""
+    
   });
-  
+  const [status, setStatus] = useState('');
     const[Language]=useState('ar');
     const[skills,setSkills]=useState('')
   const [loading,setLoading]=useState(false);
@@ -25,7 +26,7 @@ const [error,setError]=useState(false);
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState(null);
     const [selectedFile, setSelectedFile] = useState(null);
-      useEffect(() => {
+     /* useEffect(() => {
     // أول ما الصفحة تفتح، نجيب الـ userId من localStorage ونحطه
      const storedUserId = localStorage.getItem('UserId');
     if (storedUserId) {
@@ -34,15 +35,17 @@ const [error,setError]=useState(false);
          UserId: storedUserId,
       }));
     }
-  }, []);
+  }, []);*/
+    const handleChange=(e)=>{
+      setFormData({...formData,[e.target.name]:e.target.value})
+
+    }
     
-    const handleChange = (e) => {
-      const { name, value, files } = e.target;
-      if (files && files.length > 0) {
-        setFormData({ ...formData, [name]: files[0] });
-        setPreview(URL.createObjectURL(files[0]));
-      } else {
-        setFormData({ ...formData, [name]: value });
+    const handlefileChange = (e) => {
+      const image=e.target.files[0];
+      if(image){
+        const blob=new Blob([image], {type:image.png})
+        setFormData({...formData,formFile: blob});
       }
     };
 
@@ -55,46 +58,41 @@ const [error,setError]=useState(false);
       
     async  function Submit(e){
         e.preventDefault();
-        if (!formData.formFile) {
-          alert('من فضلك ارفع صورة شخصية');
-          return;
-        }
-        const data = new FormData();
-    for (const key in formData) {
-      data.append(key, formData[key]);
-    }
-     
-    
-        setLoading(true);
-        setError(null);
+        setStatus('جارٍ الإرسال...');
         
-        try {
-          const response = await axios.post('https://hscoding.runasp.net/api/Techinican/Add', formData, {
-           
-            headers: {
-             // 'Content-Type': 'multipart/form-data'
-            },
-          
-          });
-    
-          const responseData = await response.json();
-          console.log('استجابة السيرفر:', responseData);
-    
-          if (!response.ok) {
-            console.log("تفاصيل الخطأ:", responseData.errors); 
-            throw new Error(responseData.message || 'حدث خطأ أثناء التسجيل.');
-          }
-    
-          console.log('تم التسجيل بنجاح:', responseData);
-    
-          // توجيه المستخدم بناءً على اختياره
-         
-        } catch (err) {
-          setError(err.message);
-          console.error('خطأ في التسجيل:', err);
+       
+        
+        const data = new FormData();
+        data.append('jopId',formData.jopId);
+        data.append('skillDescription',formData.skillDescription);
+        data.append('experienceYears',formData.experienceYears);
+        data.append('location',formData.location);
+        data.append('hourlyRateAtHire',formData.hourlyRateAtHire);
+        data.append('nationalImage',formData.nationalImage);
+        if(formData.formFile){
+          data.append('formFile',formData.formFile,'uploaded_image.png');
         }
-      };
-  
+        
+
+
+
+
+
+
+    
+        try {
+      const response = await axios.post('https://hscoding.runasp.net/api/Techinican/Add', data, {
+
+        headers:{
+          'Content-Type': 'multipart/form-data'
+        }
+      })
+      console.log('Response:', response.data);
+      } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
 
 
 
@@ -152,7 +150,7 @@ const [error,setError]=useState(false);
           
             ></input>
              <label>الصورة الشخصية:</label>
-             <input type="file" name="formFile" accept="image/*" onChange={handleChange} />
+             <input type="file" name="formFile" accept="image/*" onChange={handlefileChange} />
              
            
             <div style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
