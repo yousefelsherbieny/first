@@ -51,7 +51,7 @@ function Client( ){
           if (isTechnician === 'true') {
             Navigate('/Tech2');
           } else if (isTechnician === 'false') {
-            Navigate('/HomeAfterLog ');
+            Navigate('/Congra');
           }
           const registerData = { firstName, lastName, NationalId,password,phoneNumber,email,isTechnician};
           //  // Form data to send

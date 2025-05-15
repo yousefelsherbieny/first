@@ -12,7 +12,7 @@ function Tech2(){
     hourlyRateAtHire: "",
     nationalImage: "",
     userId: "",
-    formFile:""
+    formFile:null
     
   });
   const [status, setStatus] = useState('');
@@ -91,9 +91,10 @@ const [error,setError]=useState(false);
       } catch (error) {
       console.error('Error submitting form:', error);
     }
+    Navigate('/Congra');
   };
 
-
+   
 
 
             
