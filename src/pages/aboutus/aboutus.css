@@ -1,0 +1,40 @@
+/* تنسيق لصفحة About Us */
+.aboutus-container {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.aboutus-content {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.aboutus-text {
+    flex: 1;
+    padding: 10px;
+}
+
+.aboutus-image {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vision-section, .mission-section {
+    background-color: #F8F9FB;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+h3, h4 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}

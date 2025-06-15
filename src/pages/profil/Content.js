@@ -15,6 +15,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import Review from "./Review";
 function Content() {
   const [Language] = useState("ar");
+  const navigate = useNavigate();
   return (
     <div className="contentt">
       <div className="profilo">
@@ -42,8 +43,7 @@ function Content() {
       <div className="show-form" dir={Language === "ar" ? "rtl" : "ltr"}>
         <div className="hello">
           <h2>مرحبا, محمد</h2>
-          <p>Joined in 5Mar 2023</p>
-          <button>تعديل البروفيل</button>
+          <button  onClick={()=>navigate('/EditProfil')} >تعديل البروفيل</button>
 
         </div>
         <h2 style={{paddingRight:'2em'}}>الاعمال السابقه</h2>

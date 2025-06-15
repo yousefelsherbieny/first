@@ -1,56 +1,61 @@
-.nevbar{
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    right: 0;
-    left: 0;
-    align-items: center;
-    background-color: #FFFFFF ;
-   height: 60px;
- 
-  
+.nevbar {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  right: 0;
+  left: 0;
+  align-items: center;
+  background-color: #FFFFFF;
+  height: 60px;
+  padding: 0 15px; /* لتوفير مساحة حول الـ navbar */
 }
-.ulstyle{
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-    display: flex;
-   text-align: center;
-    width: 50%;
-    justify-content: space-evenly;
+
+.ulstyle {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* توسيط العناصر أفقياً */
+  align-items: center; /* توسيط العناصر عموديًا */
+  width: 50%;
 }
-.astyle{
-    color: #04343E;
-    text-decoration: none;
-    font-size: 18px;
-    justify-content: center;
-    align-items: center;
+
+.astyle {
+  color: #04343E;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 5px 10px; /* إضافة padding للمسافات حول النص */
+  justify-content: center;
+  align-items: center;
 }
+
 @media screen and (max-width: 992px) {
-    ul{
-        width: 80%;
-    }
-    
+  .ulstyle {
+    width: 80%;
+  }
+
+  .stl, .stl2 {
+    padding: 6px;
+    font-size: 14px; /* تقليل حجم النص في الأزرار */
+  }
 }
-@media screen and (max-width:768px){
-    .nevbar{
-        flex-direction: column;
-        background-color: #f1efde42;
-        border-radius: 0;
-       
-       
-    }
-   .ulstyle{
+
+@media screen and (max-width: 768px) {
+  .nevbar {
     flex-direction: column;
-    }
-    .astyle{
-        padding: 5px 3px;
-    }
-    .stl{
-        padding: 5px;
-        border-radius:10px ;
-    }
-    .stl2{
-        margin-top: 4px;
-    }
+    background-color: #f1efde42;
+    border-radius: 0;
+    padding: 10px 0;
+  }
+
+  .ulstyle {
+    flex-direction: column;
+    width: 100%;
+    align-items: center; /* توسيط العناصر في الشاشات الصغيرة */
+  }
+
+  .stl, .stl2 {
+    width: 90%; /* لجعل الأزرار أكبر قليلاً في الشاشات الصغيرة */
+    margin-bottom: 10px; /* إضافة مسافة بين الأزرار */
+  }
 }

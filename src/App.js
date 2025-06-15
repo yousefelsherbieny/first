@@ -15,6 +15,8 @@ import HomeAfterLog from "./pages/homeAfterLog/HomeAfterLog";
 import EditProfil from "./pages/editProfil/EditProfil";
 import Search from "./pages/search/Search";
 import Profil from "./pages/profil/Profil"
+import Ourview from "./pages/home/Components/Ourview/Ourview";
+import AboutUs from "./pages/aboutus/AboutUs";
 import "./App.css";
 function App() {
   return (
@@ -36,6 +38,8 @@ function App() {
           <Route path="/HomeAfterLog" element={<HomeAfterLog />} />
           <Route path="/EditProfil" element={<EditProfil />} />
           <Route path="/Profil" element={<Profil />} />
+          <Route path="/Ourview" element={<Ourview />} />
+          <Route path="/AboutUs" element={<AboutUs />} />
 
           <Route path="/Search" element={<Search />} />
 
